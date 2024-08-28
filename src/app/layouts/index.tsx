@@ -20,7 +20,7 @@ export function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html className="scroll-smooth" lang="en" suppressHydrationWarning>
       <Head>
         <link rel="faviicon" href="/app/favicon.ico" sizes="any" />
       </Head>
