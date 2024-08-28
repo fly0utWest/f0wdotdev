@@ -20,7 +20,7 @@ export function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="shortcut icon" href="/app/favicon.ico" type="image/x-icon" />
+      <link rel="faviicon" href="/app/favicon.ico" sizes="any" />
       </Head>
       <body className={JBmono.className}>
         <Header />
