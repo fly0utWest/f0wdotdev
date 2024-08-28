@@ -10,9 +10,9 @@ export const BioSection: React.FC = () => {
         My name's Nikita (@fly0utwest). I have a passion for computer science
         in general, and now I mostly preoccupied with making web apps and
         fooling around with linux-based systemsm but in near future I'd like to
-        know more about embedded programing and other iniiresting stuff idk ¯\_(ツ)_/¯<br /><br />You can read more about my setup <Link className='underline' href={'/about'}>here</Link>, i guess..
+        know more about embedded programing and other iniiresting stuff idk ¯\_(ツ)_/¯<br /><br />You can read more about my setup <Link className='underline' href={'/about'}>here</Link> soon, i guess..
       </p>
-      <hr className='text-gray-600'/>
+      <hr className='border-gray-600'/>
     </section>
   );
 };

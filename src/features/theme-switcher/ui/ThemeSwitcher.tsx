@@ -16,11 +16,11 @@ const ThemeSwitcher: React.FC = () => {
 
   if (!mounted) return <>...</>;
 
-  if (currentTheme === 'light')
-    return <MoonIcon className="w-4 h-4" onClick={() => setTheme('dark')} />;
-
   if (currentTheme === 'dark')
-    return <SunIcon className="w-4 h-4" onClick={() => setTheme('light')} />;
+    return <MoonIcon className="w-6 h-6 cursor-pointer" onClick={() => setTheme('light')} />;
+
+  if (currentTheme === 'light')
+    return <SunIcon className="w-6 h-6 cursor-pointer" onClick={() => setTheme('dark')} />;
 };
 
 export default ThemeSwitcher;
