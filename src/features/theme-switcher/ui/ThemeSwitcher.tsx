@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
@@ -17,10 +17,20 @@ const ThemeSwitcher: React.FC = () => {
   if (!mounted) return <>...</>;
 
   if (currentTheme === 'dark')
-    return <MoonIcon className="w-6 h-6 cursor-pointer" onClick={() => setTheme('light')} />;
+    return (
+      <MoonIcon
+        className="w-6 h-6 cursor-pointer"
+        onClick={() => setTheme('light')}
+      />
+    );
 
   if (currentTheme === 'light')
-    return <SunIcon className="w-6 h-6 cursor-pointer" onClick={() => setTheme('dark')} />;
+    return (
+      <SunIcon
+        className="w-6 h-6 cursor-pointer"
+        onClick={() => setTheme('dark')}
+      />
+    );
 };
 
 export default ThemeSwitcher;
