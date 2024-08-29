@@ -1,0 +1,1 @@
+export {default as ContentsTable} from './ui/ContentsTable'

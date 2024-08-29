@@ -32,6 +32,14 @@ body {
   background: rgb(var(--background-end-rgb));
 }
 
+:root.light *::selection {
+  @apply bg-black text-white
+}
+
+:root.dark *::selection {
+  @apply bg-white text-black
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

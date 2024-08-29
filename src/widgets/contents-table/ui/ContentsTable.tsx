@@ -1,9 +1,36 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
 const ContentsTable = () => {
-  return (
-    <section className='w-full flex flex-col gap-3'></section>
-  )
-}
+  interface ContentsList {
+    link: string;
+    description: string;
+  }
 
-export default ContentsTable
+  const links: ContentsList[] = [{ link: '#info', description: '> ./info.txt' }, {link: "#tech-stack", description: "> ./tech-stack.md"}];
+
+  return (
+    <>
+    <section className="w-full flex flex-col gap-3 mb-5">
+      <h2 className="text-2xl font-bold">
+        <span className="text-violet-400">cd</span> &lt;TAB&gt;
+      </h2>
+      <ul className="flex flex-col gap-4">
+        {links.map((element) => (
+          <li>
+            <Link
+              className="py-2 pr-2 w-max hover:bg-black hover:text-white hover:transition-colors transition-colors dark:hover:invert"
+              href={element.link}
+            >
+              {element.description}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+    <hr className='border-gray-600 w-full mb-10'/>
+    </>
+  );
+};
+
+export default ContentsTable;
