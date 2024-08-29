@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - webnet
+
+  caddy:
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - webnet
+
+networks:
+  webnet:
+
+volumes:
+  caddy_data:
+  caddy_config:
