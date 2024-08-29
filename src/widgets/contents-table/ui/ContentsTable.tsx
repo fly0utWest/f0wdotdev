@@ -15,7 +15,6 @@ const ContentsTable = () => {
   ];
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
-
   return (
     <>
       <section className="w-full flex flex-col gap-3 mb-5">
