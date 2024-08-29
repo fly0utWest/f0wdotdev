@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BioSection } from '@/widgets/bio-section';
+import { ContentsTable } from '@/widgets/contents-table';
+import { TechStack } from '@/widgets/tech-stack';
 
 export default function HomePage() {
   return (
@@ -11,7 +13,9 @@ export default function HomePage() {
 ┛┗┗┗┗  •┗┛
           
 `}</pre>
+      <ContentsTable />
       <BioSection />
+      <TechStack />
     </main>
   );
 }

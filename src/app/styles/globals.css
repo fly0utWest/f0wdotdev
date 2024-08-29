@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body * {
-  @apply transition-colors delay-100
-}
-
 :root,
 :root.light {
   --foreground-rgb: 0, 0, 0;
@@ -30,6 +26,14 @@ body * {
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
+}
+
+:root.light *::selection {
+  @apply bg-black text-white
+}
+
+:root.dark *::selection {
+  @apply bg-white text-black
 }
 
 @layer utilities {
