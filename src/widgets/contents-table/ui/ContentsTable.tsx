@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 const ContentsTable = () => {
@@ -12,13 +14,15 @@ const ContentsTable = () => {
     { link: '#tech-stack', description: '> ./tech-stack.md' },
   ];
 
+  const [menuOpened, setMenuOpened] = useState<boolean>(false);
+
   return (
     <>
       <section className="w-full flex flex-col gap-3 mb-5">
-        <h2 className="text-2xl font-bold">
-          <span className="text-violet-400">cd</span> &lt;TAB&gt;
+        <h2 className="text-2xl font-bold cursor-pointer" onClick={() => setMenuOpened(!menuOpened)}>
+          <span className="text-violet-400">cd</span> *Click*
         </h2>
-        <ul className="flex flex-col gap-4">
+        <ul className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}>
           {links.map((element, index) => (
             <li key={index}>
               <Link
