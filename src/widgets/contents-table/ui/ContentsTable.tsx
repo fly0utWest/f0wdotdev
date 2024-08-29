@@ -6,7 +6,7 @@ const ContentsTable = () => {
     link: string;
     description: string;
   }
-
+  
   const links: ContentsList[] = [
     { link: '#info', description: '> ./info.txt' },
     { link: '#tech-stack', description: '> ./tech-stack.md' },
