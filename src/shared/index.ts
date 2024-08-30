@@ -1,3 +1,5 @@
+export { Footer } from "./footer";
 export { Navbar } from "./navbar";
-export { Header } from "./header";
+export { default as Header } from "./header";
 export { NavSide } from "./nav-side";
+export { TopLinkButton } from './toplink-button/'

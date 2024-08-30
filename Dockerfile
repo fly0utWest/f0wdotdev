@@ -3,11 +3,11 @@ FROM node:18 AS builder
 
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Install dependencies
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of the code and build the app
+# Build the app
 COPY . .
 RUN npm run build
 
@@ -16,9 +16,14 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Copy the built files from the builder stage
 COPY --from=builder /app ./
+
+# Install only production dependencies
 RUN npm install --production
 
+# Expose the port that the app will run on
 EXPOSE 3000
 
-CMD ["npm", "run", 'dev']
+# Use the optimized production build
+CMD ["npx", "next", "start"]

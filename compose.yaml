@@ -3,26 +3,28 @@ version: '3.8'
 services:
   nextjs:
     build: .
+    environment:
+      - NODE_ENV=production  # Ensure the app is running in production mode
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Exposing port 3000 for the Next.js app
     networks:
       - webnet
 
   caddy:
     image: caddy:latest
     ports:
-      - "80:80"
-      - "443:443"
+      - "80:80"  # HTTP port
+      - "443:443"  # HTTPS port
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile  # Mount the Caddyfile
+      - caddy_data:/data  # Persistent storage for SSL certificates and other data
+      - caddy_config:/config  # Persistent storage for Caddy's configuration
     networks:
       - webnet
 
 networks:
-  webnet:
+  webnet:  # Define the network for communication between services
 
 volumes:
-  caddy_data:
+  caddy_data:  # Define persistent volumes for Caddy
   caddy_config:
