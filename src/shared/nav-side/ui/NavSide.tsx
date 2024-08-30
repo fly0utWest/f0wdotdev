@@ -19,6 +19,12 @@ export const NavSide = () => {
         </Link>
         <Link href="https://github.com/fly0utwest">
           <GithubLogo className="w-6 h-6" />
+        </Link> 
+        <Link href="https://steamcommunity.com/id/fly0utWest/">
+          <SteamLogo className="w-6 h-6" />
+        </Link>
+        <Link href="https://www.last.fm/user/fly0utWest">
+          <LastFMLogo className="w-6 h-6" />
         </Link>
         <Link href="https://steamcommunity.com/id/fly0utWest/">
           <SteamLogo className="w-6 h-6" />
