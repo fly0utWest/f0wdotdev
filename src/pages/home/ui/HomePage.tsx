@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { BioSection } from '@/widgets/bio-section';
 import { ContentsTable } from '@/widgets/contents-table';
 import { TechStack } from '@/widgets/tech-stack';
