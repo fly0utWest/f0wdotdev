@@ -6,7 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import '../styles';
 import { NavSide } from '@/shared';
 import { Footer } from '@/shared/';
-import {TopLinkButton} from '@/shared';
+import { TopLinkButton } from '@/shared';
 
 const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 
