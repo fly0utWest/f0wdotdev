@@ -26,12 +26,6 @@ export const NavSide = () => {
         <Link href="https://www.last.fm/user/fly0utWest">
           <LastFMLogo className="w-6 h-6" />
         </Link>
-        <Link href="https://steamcommunity.com/id/fly0utWest/">
-          <SteamLogo className="w-6 h-6" />
-        </Link>
-        <Link href="https://www.last.fm/user/fly0utWest">
-          <LastFMLogo className="w-6 h-6" />
-        </Link>
       </div>
       </div>
     </nav>
