@@ -10,7 +10,7 @@ import {
 
 export const NavSide = () => {
   return (
-    <nav className="flex flex-row gap-4 items-center justify-between w-full sticky top-0 min-h-full border-b-2 border-b-black bg-white p-y-4 dark:bg-black dark:border-b-white md:flex-col md:border-r-2 md:border-r-black md:border-b-0 md:dark:border-r-white md:w-max md:relative md:pb-20 md:justify-normal md:gap-6">
+    <nav className="flex flex-row gap-4 items-center justify-between w-full sticky top-0 min-h-full border-b-2 border-b-black bg-white p-y-4 dark:bg-black dark:border-b-white md:flex-col md:border-r-2 md:border-r-black md:border-b-0 md:dark:border-r-white md:relative md:pb-20 md:justify-normal md:gap-6 md:w-max">
       <div className='flex gap-4 w-full justify-between md:flex-col md:sticky md:top-0 md:gap-12 p-4'>
       <ThemeSwitcher />
       <div className="flex flex-row gap-4 md:flex-col">
