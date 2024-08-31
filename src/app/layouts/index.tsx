@@ -30,6 +30,7 @@ export function RootLayout({
               <main className="flex flex-col w-full items-center min-h-screen px-6 pt-4 pb-10 font-bold text-2xl border-x-0 md:border-x-2 border-x-black dark:border-x-white">
                 {children}
               </main>
+              <NavSide />
             </div>
             <Footer />
           </div>
