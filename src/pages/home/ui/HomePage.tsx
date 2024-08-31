@@ -5,8 +5,8 @@ import { ProjectsWidget } from '@/widgets/projects-widget';
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center min-h-screen px-6 pt-4 pb-10 font-bold text-2xl border-x-0 md:border-x-2 border-x-black dark:border-x-white">
-      <pre className="text-lg whitespace-pre-wrap">{`
+    <>
+      <pre className="text-lg text-center whitespace-pre-wrap">{`
 ┓ •••   ┏┓
 ┣┓┓┓┓  • ┫
 ┛┗┗┗┗  •┗┛
@@ -16,6 +16,6 @@ export default function HomePage() {
       <BioSection />
       <TechStack />
       {/* <ProjectsWidget /> */}
-    </main>
+    </>
   );
 }
