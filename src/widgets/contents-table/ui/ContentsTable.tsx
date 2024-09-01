@@ -8,20 +8,29 @@ const ContentsTable = () => {
     link: string;
     description: string;
   }
-  
+
   const links: ContentsList[] = [
     { link: '#info', description: '> ./info.txt' },
     { link: '#tech-stack', description: '> ./tech-stack.md' },
+    {link: "#music", description: "> ./music"}
   ];
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
   return (
     <>
       <section className="w-full flex flex-col gap-3 mb-5">
-        <h2 className="text-2xl font-bold cursor-pointer" onClick={() => setMenuOpened(!menuOpened)}>
-          <span className="text-violet-400">cd</span> *click*
-        </h2>
-        <ul className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}>
+        <div>
+          <h2
+            className="text-2xl font-bold cursor-pointer"
+            onClick={() => setMenuOpened(!menuOpened)}
+          >
+            <span className="text-violet-400">cd</span> *click*
+          </h2>
+          <p className='text-gray-400 text-sm font-light'>## fast forward to primary page section</p>
+        </div>
+        <ul
+          className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}
+        >
           {links.map((element, index) => (
             <li key={index}>
               <Link
