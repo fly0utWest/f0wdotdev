@@ -1,48 +1,22 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
+import { useTracks } from '../model/useTracks';
 
 const LastfmWidget = () => {
-  const [tracks, setTracks] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const {tracks, loading, error} = useTracks(); 
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: 'free',
     slides: { spacing: 20, perView: 'auto' },
   });
 
   useEffect(() => {
-    const fetchAPI = async () => {
-      try {
-        const result = await axios.get('https://ws.audioscrobbler.com/2.0/', {
-          params: {
-            method: 'user.getrecenttracks',
-            user: 'fly0utwest',
-            api_key: '7468e6222c8859d7f0b0f238c7714dd3',
-            limit: '19',
-            format: 'json',
-          },
-        });
-        console.log(result.data);
-        setTracks(result.data.recenttracks.track);
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAPI();
-  }, []);
-
-  useEffect(() => {
     instanceRef.current?.update();
-    console.log();
   }, [tracks]);
 
   return (
