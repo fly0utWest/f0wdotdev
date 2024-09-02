@@ -25,7 +25,7 @@ const LastfmWidget = () => {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">
-            <span className="text-violet-400">cmus </span>
+            <span className="text-violet-400">ls </span>
             {'~/music'}
           </h2>
           <p className="text-gray-400 text-sm font-medium">
