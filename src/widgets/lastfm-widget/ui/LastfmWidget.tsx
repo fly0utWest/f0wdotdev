@@ -9,7 +9,7 @@ import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
 import { useTracks } from '../model/useTracks';
 
 const LastfmWidget = () => {
-  const {tracks, loading, error} = useTracks(); 
+  const { tracks, loading, error } = useTracks();
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: 'free',
     slides: { spacing: 20, perView: 'auto' },
@@ -17,6 +17,7 @@ const LastfmWidget = () => {
 
   useEffect(() => {
     instanceRef.current?.update();
+    console.log(tracks)
   }, [tracks]);
 
   return (
@@ -84,6 +85,11 @@ const LastfmWidget = () => {
                     </p>
                   ) : null}
                 </div>
+                {track.repeatCount! > 1 ? (
+                  <p className="absolute top-0 right-0 bg-black text-white p-1 dark:bg-white dark:text-black font-bold">
+                    x{track.repeatCount}
+                  </p>
+                ) : null}
               </div>
             ))}
         </div>

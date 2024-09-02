@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { repeatCounterArray } from '../lib/repeatCount';
 
 export interface Track {
   name: string;
   artist: { '#text': string };
   image: Array<{ '#text': string }>;
   '@attr'?: { nowplaying: boolean };
+  repeatCount?: number;
 }
 
 export const useTracks = () => {
@@ -16,9 +18,8 @@ export const useTracks = () => {
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        const response = await axios.get<Track[]>('/api/lastfmtracks', {
-        });
-        setTracks(response.data);
+        const response = await axios.get<Track[]>('/api/lastfmtracks', {});
+        setTracks(repeatCounterArray(response.data));
       } catch (error: any) {
         setError(error.message);
       } finally {
