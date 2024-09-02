@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -18,7 +18,17 @@ export async function GET(req: Request) {
     });
 
     return NextResponse.json(response.data.recenttracks.track);
-  } catch (error) {
-    return NextResponse.json({ error: "Sorry, there won't be tracks :(" }, { status: 500 });
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      return NextResponse.json(
+        { error: "Sorry, there won't be tracks :(" },
+        { status: error.response!.status },
+      );
+    } else {
+      return NextResponse.json(
+        { error: "Sorry, there won't be tracks :(" },
+        { status: 500 },
+      );
+    }
   }
 }
