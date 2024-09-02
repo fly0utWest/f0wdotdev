@@ -20,8 +20,10 @@ export const useTracks = () => {
       try {
         const response = await axios.get<Track[]>('/api/lastfmtracks', {});
         setTracks(repeatCounterArray(response.data));
-      } catch (error: any) {
-        setError(error.message);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setError(error.message);
+        }
       } finally {
         setLoading(false);
       }

@@ -16,8 +16,8 @@ export default function HomePage() {
       <ContentsTable />
       <BioSection />
       <TechStack />
+      <ProjectsWidget />
       <LastfmWidget />
-      {/* <ProjectsWidget /> */}
     </>
   );
 }
