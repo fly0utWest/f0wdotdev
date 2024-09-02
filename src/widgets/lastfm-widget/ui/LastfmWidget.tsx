@@ -17,7 +17,6 @@ const LastfmWidget = () => {
 
   useEffect(() => {
     instanceRef.current?.update();
-    console.log(tracks)
   }, [tracks]);
 
   return (
