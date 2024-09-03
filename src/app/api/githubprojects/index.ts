@@ -12,17 +12,23 @@ export async function GET() {
       },
     );
 
-    return NextResponse.json(response.data);
+    const jsonResponse = NextResponse.json(response.data);
+
+    jsonResponse.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    jsonResponse.headers.set('Pragma', 'no-cache');
+    jsonResponse.headers.set('Expires', '0');
+
+    return jsonResponse;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       return NextResponse.json(
-        { error: 'Sorry, error occured' },
-        { status: error.response?.status },
+        { error: 'Sorry, error occurred' },
+        { status: error.response?.status }
       );
     } else {
       return NextResponse.json(
-        { error: 'Sorry, internal error occured' },
-        { status: 500 },
+        { error: 'Sorry, internal error occurred' },
+        { status: 500 }
       );
     }
   }

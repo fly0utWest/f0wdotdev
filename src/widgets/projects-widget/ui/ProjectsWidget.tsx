@@ -63,6 +63,9 @@ const ProjectsWidget: React.FC = () => {
                 </div>
               </Link>
             ))}
+            {!loading && error && 
+            <p className='text-red-500'>Error occured</p>
+            }
         </div>
       </section>
       <hr className="border-gray-600 w-full" />
