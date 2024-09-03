@@ -11,7 +11,7 @@ export async function GET() {
         },
       },
     );
-
+    
     const jsonResponse = NextResponse.json(response.data);
 
     jsonResponse.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
