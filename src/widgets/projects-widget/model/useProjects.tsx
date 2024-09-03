@@ -12,7 +12,7 @@ export const useProjects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const result = await axios.get('/api/githubprojects');
+        const result = await axios.get(`/api/githubprojects?t=${new Date().getTime()}`);
         setProjects(neededProjectsSearch(result.data, neededProjectsIds));
       } catch (error: unknown) {
         if (error instanceof Error) {
