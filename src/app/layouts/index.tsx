@@ -23,7 +23,7 @@ export function RootLayout({
   return (
     <html className="scroll-smooth" lang="en" suppressHydrationWarning>
       <body className={JBmono.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <div className="md:max-w-[768px] md:mx-auto min-h-screen ">
             <div className="flex relative flex-col-reverse justify-end md:flex-row md:justify-center">

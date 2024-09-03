@@ -10,9 +10,10 @@ const ContentsTable = () => {
   }
 
   const links: ContentsList[] = [
-    { link: '#info', description: '> ./info.txt' },
-    { link: '#tech-stack', description: '> ./tech-stack.md' },
-    {link: "#music", description: "> ./music"}
+    { link: '#info', description: '> ./info/' },
+    { link: '#tech-stack', description: '> ./tech-stack/' },
+    { link: '#music', description: '> ./music/' },
+    { link: '#projects', description: '> ./projects/' },
   ];
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
@@ -26,7 +27,9 @@ const ContentsTable = () => {
           >
             <span className="text-violet-400">cd</span> *click*
           </h2>
-          <p className='text-gray-400 text-sm font-light'>## fast forward to primary page section</p>
+          <p className="text-gray-400 text-sm font-light">
+            ## fast forward to primary page section
+          </p>
         </div>
         <ul
           className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}
