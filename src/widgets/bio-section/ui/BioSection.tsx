@@ -13,7 +13,7 @@ export const BioSection: React.FC = () => {
         </h2>
         <p className='text-sm text-gray-400 font-light'>## some random stuff about me with link to something more important</p>
         </div>
-        <p className="text-sm">
+        <p className="text-base">
           My name&apos;s Nikita (@fly0utwest). I have a passion for computer
           science in general, and now I mostly preoccupied with making web apps
           and fooling around with linux-based systems, but in near future

@@ -7,17 +7,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
 import { useTracks } from '../model/useTracks';
+import Audio from 'react-loading-icons/dist/esm/components/audio';
+import Oval from 'react-loading-icons/dist/esm/components/oval';
+import { useTheme } from 'next-themes';
 
 const LastfmWidget = () => {
   const { tracks, loading, error } = useTracks();
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: 'free',
     slides: { spacing: 20, perView: 'auto' },
   });
 
   useEffect(() => {
+    setMounted(true);
     instanceRef.current?.update();
   }, [tracks]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
@@ -61,6 +71,10 @@ const LastfmWidget = () => {
                 width={60}
                 height={60}
               ></Image>
+              <Oval
+                stroke={theme === 'dark' ? '#ffffff' : '#000000'}
+                className="w-6 h-6"
+              />
               <p className="text-lg">Loading...</p>
             </div>
           )}
@@ -75,17 +89,19 @@ const LastfmWidget = () => {
                   width={60}
                   height={60}
                 ></Image>
-                <div>
+                <div className="m-3">
                   <p className="font-light">{track.name}</p>
                   <p>{track.artist['#text']}</p>
                   {track['@attr']?.nowplaying ? (
-                    <p className="font-light animate-pulse text-violet-500">
-                      Playing now
-                    </p>
+                    <div className="flex flex-row items-baseline gap-2 font-light animate-pulse text-violet-500 text-xs">
+                      <Audio fill="#a78bfa" className="w-4 h-4" />
+                      <span>Playing now</span>
+                    </div>
                   ) : null}
+                  {!loading && error && <p className='text-red-500'>Error occured</p>}
                 </div>
                 {track.repeatCount! > 1 ? (
-                  <p className="absolute top-0 right-0 bg-black text-white p-1 dark:bg-white dark:text-black font-bold">
+                  <p className="absolute bottom-0 right-0 bg-black text-white p-1 dark:bg-white dark:text-black text-xs font-bold">
                     x{track.repeatCount}
                   </p>
                 ) : null}
