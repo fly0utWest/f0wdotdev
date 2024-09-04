@@ -9,7 +9,7 @@ export const BioSection: React.FC = () => {
         <div>
 
         <h2 className="text-2xl">
-          <span className="text-violet-400">cat</span> ~/info.txt
+          <span className="text-violet-400">cat</span> ~/info/info.txt
         </h2>
         <p className='text-sm text-gray-400 font-light'>## some random stuff about me with link to something more important</p>
         </div>

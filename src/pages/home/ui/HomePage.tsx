@@ -3,6 +3,7 @@ import { ContentsTable } from '@/widgets/contents-table';
 import { TechStack } from '@/widgets/tech-stack';
 import { ProjectsWidget } from '@/widgets/projects-widget';
 import { LastfmWidget } from '@/widgets/lastfm-widget';
+import ShoutboxWidget from '@/widgets/shoutbox-widget/ui/ShoutboxWidget';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <BioSection />
       <TechStack />
       <ProjectsWidget />
+      <ShoutboxWidget />
       <LastfmWidget />
     </>
   );
