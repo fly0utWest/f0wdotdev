@@ -19,7 +19,7 @@ interface MessageData {
 const ShoutboxWidget = () => {
   const [message, setMessage] = useState<null | MessageData>({
     text: '',
-    userAgent: window.navigator.userAgent,
+    userAgent: '',
     ip: '',
   });
   const [failure, setFailure] = useState<null | boolean>(null);
@@ -57,7 +57,7 @@ const ShoutboxWidget = () => {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const fetchIp = async () => {
       const ipAddr = await ipGrabber();
 
@@ -66,6 +66,10 @@ const ShoutboxWidget = () => {
       }
     };
 
+    setMessage((prevState) => ({
+      ...prevState,
+      userAgent: window.navigator.userAgent,
+    }));
     fetchIp();
   }, []);
 
