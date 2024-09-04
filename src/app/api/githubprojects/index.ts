@@ -13,7 +13,7 @@ export async function GET() {
         },
       },
     );
-
+    
     return NextResponse.json(response.data, { status: 200 });
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {

@@ -57,7 +57,7 @@ const ShoutboxWidget = () => {
 
   useEffect(() => {
     setMounted(true);
-
+    
     const fetchIp = async () => {
       const ipAddr = await ipGrabber();
 
