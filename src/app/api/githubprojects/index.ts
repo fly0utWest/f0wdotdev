@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 
-
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
@@ -15,16 +14,7 @@ export async function GET() {
       },
     );
 
-    const jsonResponse = NextResponse.json(response.data);
-
-    jsonResponse.headers.set(
-      'Cache-Control',
-      'no-store, no-cache, must-revalidate, proxy-revalidate',
-    );
-    jsonResponse.headers.set('Pragma', 'no-cache');
-    jsonResponse.headers.set('Expires', '0');
-
-    return jsonResponse;
+    return NextResponse.json(response.data, { status: 200 });
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       return NextResponse.json(

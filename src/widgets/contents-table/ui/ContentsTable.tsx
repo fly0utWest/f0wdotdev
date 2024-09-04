@@ -12,8 +12,9 @@ const ContentsTable = () => {
   const links: ContentsList[] = [
     { link: '#info', description: '> ./info/' },
     { link: '#tech-stack', description: '> ./tech-stack/' },
-    { link: '#music', description: '> ./music/' },
     { link: '#projects', description: '> ./projects/' },
+    { link: '#shoutbox', description: '> /tg-shoutbox' },
+    { link: '#music', description: '> ./music/' },
   ];
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);

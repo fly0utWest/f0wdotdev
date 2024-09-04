@@ -26,7 +26,7 @@ const ProjectsWidget: React.FC = () => {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">
-            <span className="text-violet-400">cat</span> ~/projects.md
+            <span className="text-violet-400">ls</span> ~/projects
           </h2>
           <p className="text-gray-400 font-light text-sm">
             ## projects I&apos;ve beenn working on
@@ -68,7 +68,7 @@ const ProjectsWidget: React.FC = () => {
             }
         </div>
       </section>
-      <hr className="border-gray-600 w-full" />
+      <hr className="border-gray-600 w-full mb-10" />
     </>
   );
 };

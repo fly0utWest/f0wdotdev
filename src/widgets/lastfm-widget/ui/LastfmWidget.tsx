@@ -89,7 +89,7 @@ const LastfmWidget = () => {
                   width={60}
                   height={60}
                 ></Image>
-                <div className="m-3">
+                <div className="my-3">
                   <p className="font-light">{track.name}</p>
                   <p>{track.artist['#text']}</p>
                   {track['@attr']?.nowplaying ? (
