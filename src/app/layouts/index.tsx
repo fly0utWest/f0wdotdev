@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
-import { Header } from '@/shared/';
-import { Navbar } from '@/shared/';
+import { Header, Footer, NavSide, Navbar, TopLinkButton } from '@/shared/ui';
 import { ThemeProvider } from 'next-themes';
 import '../styles';
-import { NavSide } from '@/shared';
-import { Footer } from '@/shared/';
-import { TopLinkButton } from '@/shared';
 
 const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 

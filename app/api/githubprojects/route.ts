@@ -1,1 +1,1 @@
-export { GET, dynamic } from "@/app/api/githubprojects"
+export { GET, dynamic } from '@/shared/api/githubprojects';

@@ -35,8 +35,8 @@ const ContentsTable = () => {
         <ul
           className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}
         >
-          {links.map((element, index) => (
-            <li key={index}>
+          {links.map((element) => (
+            <li key={element.link}>
               <Link
                 className="py-2 pr-2 w-max hover:bg-black hover:text-white hover:transition-colors transition-colors dark:hover:invert"
                 href={element.link}

@@ -4,73 +4,17 @@ import React, { useEffect } from 'react';
 import { BsSendArrowUp as SendIcon } from 'react-icons/bs';
 import { useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 import Oval from 'react-loading-icons/dist/esm/components/oval';
 import { useTheme } from 'next-themes';
-import { userAgent } from 'next/server';
-import { ipGrabber } from '@/shared';
+import useShoutbox from '../model/useShoutbox';
 
-interface MessageData {
-  text?: string;
-  userAgent?: string;
-  ip?: string;
-}
-
-const ShoutboxWidget = () => {
-  const [message, setMessage] = useState<null | MessageData>({
-    text: '',
-    userAgent: '',
-    ip: '',
-  });
-  const [failure, setFailure] = useState<null | boolean>(null);
-  const [success, setSuccess] = useState<null | boolean>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+const ShoutboxWidget: React.FC = () => {
+  const { message, failure, success, loading, sendMessage, setMessage } = useShoutbox();
   const [mounted, setMounted] = useState<boolean>(false);
   const { theme } = useTheme();
 
-  const sendMessage = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
-
-    try {
-      const result = await axios.post('/api/sendmessage', { message });
-
-      if (result.status === 200) {
-        setFailure(false);
-        setSuccess(true);
-      } else {
-        setSuccess(false);
-        setFailure(true);
-      }
-    } catch (error: unknown) {
-      setSuccess(false);
-      setFailure(true);
-      console.error(error);
-    } finally {
-      setMessage((prevState) => ({
-        ...prevState,
-        text: '',
-      }));
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     setMounted(true);
-
-    const fetchIp = async () => {
-      const ipAddr = await ipGrabber();
-
-      if (ipAddr) {
-        setMessage((prevState) => ({ ...prevState, ip: ipAddr }));
-      }
-    };
-
-    setMessage((prevState) => ({
-      ...prevState,
-      userAgent: window.navigator.userAgent,
-    }));
-    fetchIp();
   }, []);
 
   if (!mounted) {
@@ -79,7 +23,7 @@ const ShoutboxWidget = () => {
 
   return (
     <>
-      <div className="w-full mb-5" id="#shoutbox"></div>
+      <div className="w-full mb-5" id="shoutbox"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">

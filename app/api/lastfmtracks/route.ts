@@ -1,1 +1,1 @@
-export {  GET  } from '@/app/api/lastfmtracks/';
+export { GET } from '@/shared/api/lastfmtracks';

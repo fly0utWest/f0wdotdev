@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { repeatCounterArray } from '../lib/repeatCount';
-
-export interface Track {
-  name: string;
-  artist: { '#text': string };
-  image: Array<{ '#text': string }>;
-  '@attr'?: { nowplaying: boolean };
-  repeatCount?: number;
-}
+import { Track } from '@/shared/model';
 
 export const useTracks = () => {
   const [tracks, setTracks] = useState<Track[]>([]);

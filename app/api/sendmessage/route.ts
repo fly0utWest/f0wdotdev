@@ -1,1 +1,1 @@
-export {POST} from '@/app/api/sendmessage/index';
+export { POST } from '@/shared/api/sendmessage/index';

@@ -14,7 +14,7 @@ const ThemeSwitcher: React.FC = () => {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <>...</>;
+  if (!mounted) return <div className='w-6 р-6'>...</div>;
 
   if (currentTheme === 'dark')
     return (
