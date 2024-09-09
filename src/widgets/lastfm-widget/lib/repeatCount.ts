@@ -1,5 +1,5 @@
 import next from 'next';
-import { Track } from '../model/useTracks';
+import { Track } from '@/shared/model';
 
 export function repeatCounterArray(array: Track[]): Track[] {
   const consolidatedTracks: Track[] = [];
