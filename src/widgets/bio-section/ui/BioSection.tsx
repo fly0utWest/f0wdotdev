@@ -38,11 +38,9 @@ export const BioSection: React.FC = () => {
           </p>
         </div>
         <p className="text-base">
-          // My name&apos;s Nikita (@fly0utwest). I have a passion for computer
-          science in general, and now I mostly preoccupied with making web apps
-          and fooling around with linux-based systems, but in near future
-          I&apos;d like to know more about embedded programing and other
-          interesting stuff idk ¯\_(ツ)_/¯
+          {
+            '// My name&apos;s Nikita (@fly0utwest). I have a passion for computer science in general, and now I mostly preoccupied with making web apps and fooling around with linux-based systems, but in near future I&apos;d like to know more about embedded programing and other interesting stuff idk ¯_(ツ)_/¯'
+          }
           <br />
         </p>
         <pre className="text-base">{JSON.stringify(info, undefined, 2)}</pre>
