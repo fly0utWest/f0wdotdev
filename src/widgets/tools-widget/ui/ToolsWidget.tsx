@@ -20,7 +20,7 @@ const ToolsWidget: React.FC = () => {
           daily driver. Text editors are VS Code and Vim, when needed.
         </p>
         <details>
-            <summary className='text-base font-bold cursor-pointer'>neofetch (as if someone care about it)</summary>
+            <summary className='text-base font-bold cursor-pointer select-none'>neofetch (as if someone care about it)</summary>
             <figure>
                 <Image className='border-2 border-black dark:border-white' src={'/neofetch.png'} width={700} height={100} alt='neofetch'></Image>
                 <figcaption className='text-xs text-center mt-2'>i use nix, btw</figcaption>
