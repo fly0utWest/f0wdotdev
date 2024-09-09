@@ -16,7 +16,7 @@ const ToolsWidget: React.FC = () => {
         </div>
         <h3>Devices</h3>
         <p className="text-base font-medium">
-          There's not much to say about here. I use Thinkpad T14s gen3, NixOS as
+          There&apos;s not much to say about here. I use Thinkpad T14s gen3, NixOS as
           daily driver. Text editors are VS Code and Vim, when needed.
         </p>
         <details>
