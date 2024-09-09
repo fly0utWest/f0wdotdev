@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
   try {
     const result = await axios.post(
-      `https://api.telegram.org/bot${TG_API_KEY}/sendMessage`,
+      `https://api.telegram.org/bot${apiKey}/sendMessage`,
       {
         chat_id: chatId,
         text: tgMessage,
