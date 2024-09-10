@@ -12,7 +12,7 @@ import { GrMysql as MySqlLogo, GrDocker as DockerLogo } from 'react-icons/gr';
 
 const infrastructureList = [
   {
-    dest: '"https://en.wikipedia.org/wiki/Linux',
+    dest: 'https://en.wikipedia.org/wiki/Linux',
     caption: 'linux',
     icon: <LinuxLogo className="w-6 h-6" />,
   },
