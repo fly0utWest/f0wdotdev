@@ -1,1 +1,1 @@
-export { GET } from '@/shared/api/lastfmtracks';
+export { GET, dynamic } from '@/shared/api/lastfmtracks';

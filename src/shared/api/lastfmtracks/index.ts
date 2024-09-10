@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import axios, { AxiosError } from 'axios';
 import { lastfmUser, lastfmBaseUrl, trackLimit, lastfmApiKey } from '@/shared/config';
 
+
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const user = lastfmUser;
   const limit = trackLimit;
