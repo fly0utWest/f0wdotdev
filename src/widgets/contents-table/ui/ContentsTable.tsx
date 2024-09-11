@@ -29,7 +29,7 @@ const ContentsTable = () => {
             <span className="text-violet-400">cd</span> *click*
           </h2>
           <p className="text-gray-400 text-sm font-light">
-            ## fast forward to primary page section
+            ## fast forward to primary page sections
           </p>
         </div>
         <ul

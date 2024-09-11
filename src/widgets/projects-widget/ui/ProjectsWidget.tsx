@@ -26,7 +26,7 @@ const ProjectsWidget: React.FC = () => {
             <span className="text-violet-400">ls</span> ~/projects
           </h2>
           <p className="text-gray-400 font-light text-sm">
-            ## projects I&apos;ve beenn working on
+            ## projects I&apos;ve worked on
           </p>
         </div>
         <div className="flex flex-col gap-6">

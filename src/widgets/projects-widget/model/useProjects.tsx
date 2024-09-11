@@ -7,7 +7,7 @@ export const useProjects = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
-  const neededProjectsIds = [742777438, 651871385];
+  const neededProjectsIds = [742777438, 651871385, 821314092];
 
   useEffect(() => {
     const fetchProjects = async () => {

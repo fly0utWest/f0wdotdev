@@ -30,7 +30,7 @@ const ShoutboxWidget: React.FC = () => {
             <span className="text-violet-400">wget</span> /tg-shoutbox
           </h2>
           <p className="text-gray-400 font-light text-sm">
-            ## if u want to write something anonymously, u can do it here
+            ## if you want to write something anonymously, you can do it here
           </p>
         </div>
         <form onSubmit={sendMessage}>
@@ -73,7 +73,7 @@ const ShoutboxWidget: React.FC = () => {
             </button>
           </div>
           <p className="text-gray-400 font-light text-sm mt-1">
-            or, if u have somethong u&apos;d like to discuss, dm me in tg -{' '}
+            or, if you have something you&apos;d like to discuss, dm me in tg -{' '}
             <Link
               href="https://t.me/fly0utwest"
               className="text-violet-400 hover:underline text-xs"

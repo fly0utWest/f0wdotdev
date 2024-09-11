@@ -66,7 +66,7 @@ const TechStack = () => {
             <span className="text-violet-400">cat</span> ~/tech-stack/readme.md
           </h2>
           <p className="text-gray-400 text-sm font-light">
-            {"## technologies I'm working with on regular basis (or kinda)"}
+            {"## technologies I'm working with on regular basis"}
           </p> 
         </div>
         <div className="text-lg flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-y-2">

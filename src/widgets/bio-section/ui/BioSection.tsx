@@ -39,7 +39,7 @@ export const BioSection: React.FC = () => {
         </div>
         <p className="text-base">
           {
-            '// My name\'s Nikita (@fly0utwest). I have a passion for computer science in general, and now I mostly preoccupied with making web apps and fooling around with linux-based systems, but in near future I&apos;d like to know more about embedded programing and other interesting stuff idk ¯_(ツ)_/¯'
+            "// My name's Nikita aka @fly0utwest. I have a passion for computer science in general, and now I mostly preoccupied with making web apps and tinkering with linux-based systems, but in near future I'd like to know more about embedded programing and other interesting stuff like networking, devOps and SRE."
           }
           <br />
         </p>
@@ -49,7 +49,7 @@ export const BioSection: React.FC = () => {
           <Link className="underline" href={'/about'}>
             here
           </Link>
-          , i guess..
+          .
         </p>
       </section>
       <hr className="border-gray-600 w-full mb-10" />

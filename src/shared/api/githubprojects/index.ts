@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { NextResponse } from 'next/server';
-import { githubApiKey } from '@/shared/config';
+import { githubApiKey, githubUser } from '@/shared/config';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
     const response = await axios.get(
-      'https://api.github.com/users/fly0utWest/repos',
+      `https://api.github.com/users/${githubUser}/repos`,
       {
         headers: {
-          Authorization: `token ${githubApiKey}`,
+          Authorization: `Bearer ${githubApiKey}`,
         },
       },
     );
