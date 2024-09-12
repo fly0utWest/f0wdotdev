@@ -1,1 +1,1 @@
-export {default as sitemap} from '@/app/config/sitemap'
+export {sitemap as default} from '@/app/config/sitemap'

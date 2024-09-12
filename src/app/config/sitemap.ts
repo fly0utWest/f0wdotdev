@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
-import { env } from 'process';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${process.env.CANONICAL_URL}/`,
