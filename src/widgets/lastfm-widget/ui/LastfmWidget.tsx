@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
 import Link from 'next/link';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
 import { useTracks } from '../model/useTracks';
@@ -13,15 +11,10 @@ import TrackCard from './TrackCard';
 const LastfmWidget = () => {
   const { tracks, loading, error } = useTracks();
   const [mounted, setMounted] = useState<boolean>(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    mode: 'free',
-    slides: { spacing: 20, perView: 'auto' },
-  });
 
   useEffect(() => {
     setMounted(true);
-    instanceRef.current?.update();
-  }, [tracks]);
+  }, []);
 
   if (!mounted) {
     return null;
@@ -47,14 +40,12 @@ const LastfmWidget = () => {
             </Link>
           </p>
         </div>
-        <div className="keen-slider" ref={sliderRef}>
+        <div className="w-full">
           {error && !loading && <ErrorTrackCard />}
           {!error && loading && <LoadingTrackCard />}
-          {!error &&
-            !loading &&
-            tracks.map((track, index) => (
-              <TrackCard key={index} track={track} loading={loading} error={error} />
-            ))}
+          {!error && !loading && (
+            <TrackCard track={tracks[0]} />
+          )}
         </div>
       </section>
       <hr className="border-gray-600 w-full mb-10" />

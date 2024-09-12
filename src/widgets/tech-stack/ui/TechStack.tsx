@@ -71,7 +71,7 @@ const TechStack = () => {
         </div>
         <div className="text-lg flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-y-2">
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min text-wrap">langs/frameworks</h3>
+            <h3 className="w-min text-violet-400">langs/frameworks</h3>
             <ul>
               {langsList.map((element) => (
                 <li key={element.dest}>
@@ -87,7 +87,7 @@ const TechStack = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min">infrastructure</h3>
+            <h3 className="w-min text-violet-400">infrastructure</h3>
             <ul>
               {infrastructureList.map((element) => (
                 <li key={element.dest}>

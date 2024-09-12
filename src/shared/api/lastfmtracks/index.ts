@@ -10,7 +10,7 @@ export async function GET() {
   const limit = trackLimit;
 
   try {
-    const response = await axios.get(lastfmBaseUrl, {
+    const response = await axios.get(lastfmBaseUrl!, {
       params: {
         method: 'user.getRecentTracks',
         user,

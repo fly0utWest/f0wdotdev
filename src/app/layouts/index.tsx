@@ -8,7 +8,7 @@ const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "fly0utwest's lair",
-  description: 'a site <3',
+  description: 'a portfolio site',
 };
 
 export function RootLayout({
@@ -19,7 +19,7 @@ export function RootLayout({
 
   return (
     <html className="scroll-smooth" lang="en" suppressHydrationWarning>
-      <body className={`${JBmono.className} bg-cover bg-center bg-no-repeat bg-fixed bg-lain-light`}>
+      <body className={`${JBmono.className} bg-cover bg-center bg-no-repeat bg-fixed bg-custom-image`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <div className="md:max-w-[768px] md:mx-auto min-h-screen">

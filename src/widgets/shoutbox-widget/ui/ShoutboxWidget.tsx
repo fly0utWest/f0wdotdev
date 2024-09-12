@@ -27,7 +27,7 @@ const ShoutboxWidget: React.FC = () => {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">
-            <span className="text-violet-400">wget</span> /tg-shoutbox
+            <span className="text-violet-400">curl -X POST</span> /tg-shoutbox
           </h2>
           <p className="text-gray-400 font-light text-sm">
             ## if you want to write something anonymously, you can do it here

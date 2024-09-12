@@ -2,39 +2,42 @@ import React from 'react';
 import Image from 'next/image';
 import Audio from 'react-loading-icons/dist/esm/components/audio';
 import { Track } from '@/shared/model';
+import { IoMusicalNotes as IdleIcon } from 'react-icons/io5';
 
 interface TrackCardProps {
-    track: Track
-    loading: boolean
-    error: string | null
+  track: Track;
 }
 
-const TrackCard: React.FC<TrackCardProps> = ({track, loading, error}) => {
+const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
   return (
-    <div key={track.name} className="keen-slider__slide">
-      <Image
-        className="flex-shrink-0 border-2 border-black dark:border-white"
-        alt="track cover"
-        src={track.image[1]['#text']}
-        width={60}
-        height={60}
-      ></Image>
-      <div className="my-3">
-        <p className="font-light">{track.name}</p>
-        <p>{track.artist['#text']}</p>
-        {track['@attr']?.nowplaying ? (
-          <div className="flex flex-row items-baseline gap-2 font-light animate-pulse text-violet-500 text-xs">
-            <Audio fill="#a78bfa" className="w-4 h-4" />
-            <span>Playing now</span>
+    <div
+      className="flex flex-ro items-center border-2 min-w-fit min-h-32 border-black p-4 dark:border-white select-none"
+    >
+      {track['@attr']?.nowplaying ? (
+        <div className='flex flex-row items-center gap-4 text-sm'>
+          <Image
+            className="flex-shrink-0 border-2 border-black dark:border-white"
+            alt="track cover"
+            src={track.image[1]['#text']}
+            width={60}
+            height={60}
+          ></Image>
+          <div className="my-3">
+            <p className="font-light">{track.name}</p>
+            <p>{track.artist['#text']}</p>
+            <div className="flex flex-row items-baseline gap-2 font-light animate-pulse text-violet-500 text-xs">
+              <Audio fill="#a78bfa" className="w-4 h-4" />
+              <span>Playing now</span>
+            </div>
           </div>
-        ) : null}
-        {!loading && error && <p className="text-red-500">Error occured</p>}
-      </div>
-      {track.repeatCount! > 1 ? (
-        <p className="absolute bottom-0 right-0 bg-black text-white p-1 dark:bg-white dark:text-black text-xs font-bold">
-          x{track.repeatCount}
-        </p>
-      ) : null}
+        </div>
+      ) : (
+        <div className="flex flex-row items-center gap-4 text-sm">
+          <IdleIcon className="w-[60px] h-[60px]" />
+          <p className='text-lg animate-pulse'>Nothing is playing right now</p>
+
+        </div>
+      )}
     </div>
   );
 };

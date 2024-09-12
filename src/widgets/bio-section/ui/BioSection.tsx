@@ -1,29 +1,11 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { birthDateCounter } from '../lib/birthdayCounter';
 
 export const BioSection: React.FC = () => {
-  const [info, setInfo] = useState({
-    timezone: '',
-    location: 'Russia',
-    languages: ['en-US', 'ru-RU', 'uk_UA'],
-  });
 
-  useEffect(() => {
-    const liveTime = () => {
-      const currentDate = new Date();
-      setInfo((prevInfo) => ({
-        ...prevInfo,
-        timezone: `UTC+3 (${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()})`,
-      }));
-    };
-
-    const intervalId = setInterval(liveTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const languages = ['English (B2+)', 'Russian (native)', 'Ukrainian (fluent)'];
 
   return (
     <>
@@ -34,23 +16,18 @@ export const BioSection: React.FC = () => {
             <span className="text-violet-400">cat</span> ~/info/info.jsonc
           </h2>
           <p className="text-sm text-gray-400 font-light">
-            ## some random stuff about me with link to something more important
+            ## some information about me
           </p>
         </div>
-        <p className="text-base">
-          {
-            "// My name's Nikita aka @fly0utwest. I have a passion for computer science in general, and now I mostly preoccupied with making web apps and tinkering with linux-based systems, but in near future I'd like to know more about embedded programing and other interesting stuff like networking, devOps and SRE."
-          }
+        <p className="text-base">I&apos;m Nikita Ablamskiy, <span>{birthDateCounter('2003-09-30')}</span> years old web developer with a burning passion for crafting scalable and user-friendly web apps that captivate users at first click. I&apos;m always on the hunt, exploring new tech ans frameworks to innovate and solve challenges. I have experience writing SPA with React and its server components, SCSS, Tailwind and TypeScript, using Feature Sliced Design as frontend methodology. I also have written some backend in NodeJS/Express. Now I look for new possibilities for learning and enhancing my abilities as a fullstack developer.
           <br />
         </p>
-        <pre className="text-base">{JSON.stringify(info, undefined, 2)}</pre>
-        <p className="text-base">
-          You can read more about my setup{' '}
-          <Link className="underline" href={'/about'}>
-            here
-          </Link>
-          .
-        </p>
+        <h3 className='text-base font-extrabold text-violet-400'>Languages</h3>
+        <ul className='list-disc list-inside'>
+          {languages.map(lang => (
+            <li className='text-base marker:text-violet-400' key={lang}>{lang}</li>
+          ))}
+        </ul>
       </section>
       <hr className="border-gray-600 w-full mb-10" />
     </>

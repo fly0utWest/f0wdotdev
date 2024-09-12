@@ -4,20 +4,17 @@ import { TechStack } from '@/widgets/tech-stack';
 import { ProjectsWidget } from '@/widgets/projects-widget';
 import { LastfmWidget } from '@/widgets/lastfm-widget';
 import ShoutboxWidget from '@/widgets/shoutbox-widget/ui/ShoutboxWidget';
+import { SectionDelimeter } from '@/shared/ui';
 
 export default function HomePage() {
   return (
     <>
-      <pre className="text-lg text-center whitespace-pre-wrap">{`
-┓ •••   ┏┓
-┣┓┓┓┓  • ┫
-┛┗┗┗┗  •┗┛
-          
-`}</pre>
       <ContentsTable />
+      <SectionDelimeter caption="Begin CV section" />
       <BioSection />
       <TechStack />
       <ProjectsWidget />
+      <SectionDelimeter caption="End CV section" />
       <ShoutboxWidget />
       <LastfmWidget />
     </>

@@ -7,7 +7,7 @@ const LoadingTrackCard = () => {
   const {theme} = useTheme();
 
   return (
-    <div className="keen-slider__slide">
+    <div className="flex flex-row items-center gap-4 min-w-fit min-h-32 text-sm border-2 border-black p-4 dark:border-white">
     <Image
       alt="Music loading"
       src={'/music-loading.gif'}
