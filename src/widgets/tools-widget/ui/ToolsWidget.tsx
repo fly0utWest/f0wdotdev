@@ -11,7 +11,7 @@ const ToolsWidget: React.FC = () => {
             <span className="text-violet-400">ls</span> /dev/everything
           </h2>
           <p className="text-gray-400 text-sm font-light">
-            {"## technologies I'm working with on regular basis (or kinda)"}
+            {"## pieces of tech I use"}
           </p>
         </div>
         <h3>Devices</h3>
@@ -20,7 +20,7 @@ const ToolsWidget: React.FC = () => {
           daily driver. Text editors are VS Code and Vim, when needed.
         </p>
         <details>
-            <summary className='text-base font-bold cursor-pointer select-none'>neofetch (as if someone care about it)</summary>
+            <summary className='text-base font-bold cursor-pointer select-none'>neofetch</summary>
             <figure>
                 <Image className='border-2 border-black dark:border-white' src={'/neofetch.png'} width={700} height={100} alt='neofetch'></Image>
                 <figcaption className='text-xs text-center mt-2'>i use nix, btw</figcaption>

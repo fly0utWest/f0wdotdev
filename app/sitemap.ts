@@ -1,0 +1,1 @@
+export {default as sitemap} from '@/app/config/sitemap'

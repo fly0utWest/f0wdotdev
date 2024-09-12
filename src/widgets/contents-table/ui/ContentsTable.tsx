@@ -13,7 +13,7 @@ const ContentsTable = () => {
     { link: '#info', description: '> ./info/' },
     { link: '#tech-stack', description: '> ./tech-stack/' },
     { link: '#projects', description: '> ./projects/' },
-    { link: '#shoutbox', description: '> /tg-shoutbox' },
+    { link: '#shoutbox', description: '> ./tg-shoutbox/' },
     { link: '#music', description: '> ./music/' },
   ];
 

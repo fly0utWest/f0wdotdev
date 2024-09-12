@@ -13,7 +13,7 @@ export const BioSection: React.FC = () => {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">
-            <span className="text-violet-400">cat</span> ~/info/info.jsonc
+            <span className="text-violet-400">cat</span> ~/info/info.md
           </h2>
           <p className="text-sm text-gray-400 font-light">
             ## some information about me
