@@ -17,7 +17,7 @@ const infrastructureList = [
     icon: <LinuxLogo className="w-6 h-6" />,
   },
   {
-    dest: 'https://nextjs.org',
+    dest: 'https://mysql.com',
     caption: 'mySql',
     icon: <MySqlLogo className="w-6 h-6" />,
   },
@@ -45,12 +45,12 @@ const langsList = [
     icon: <ReactLogo className="w-6 h-6" />,
   },
   {
-    dest: 'https://tailwindcss.org',
+    dest: 'https://tailwindcss.com',
     caption: 'tailwind',
     icon: <TWLogo className="w-6 h-6" />,
   },
   {
-    dest: 'https://sass-lang.org',
+    dest: 'https://sass-lang.com',
     caption: 'SASS',
     icon: <SassLogo className="w-6 h-6" />,
   },
