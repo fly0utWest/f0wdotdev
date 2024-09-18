@@ -23,6 +23,10 @@ const NavSide: React.FC = () => {
       dest: 'https://www.last.fm/user/fly0utWest',
       icon: <LastFMLogo className="w-6 h-6" />,
     },
+    {
+      dest: 'https://steamcommunity.com/id/fly0utWest/',
+      icon: <SteamLogo className="w-6 h-6" />,
+    },
   ];
 
 
