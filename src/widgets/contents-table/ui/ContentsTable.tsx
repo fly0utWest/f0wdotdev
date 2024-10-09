@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 const ContentsTable = () => {
@@ -17,26 +15,26 @@ const ContentsTable = () => {
     { link: '#music', description: '> ./music/' },
   ];
 
-  const [menuOpened, setMenuOpened] = useState<boolean>(false);
   return (
     <>
-      <section className="w-full flex flex-col gap-3 mb-5">
-        <div>
-          <h2
-            className="text-2xl font-bold cursor-pointer"
-            onClick={() => setMenuOpened(!menuOpened)}
-          >
-            <span className="text-violet-400">cd</span> *click*
-          </h2>
-          <p className="text-gray-400 text-sm font-light">
-            ## fast forward to primary page sections
-          </p>
-        </div>
-        <ul
-          className={`flex flex-col gap-4 ${menuOpened ? 'visible' : 'hidden'}`}
+      <section className="w-full flex flex-col mb-5">
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          className="peer opacity-0 absolute w-0 h-0"
+        />
+        <label
+          htmlFor="menu-toggle"
+          className="text-2xl font-bold cursor-pointer text-black dark:text-white"
         >
+          <span className="text-violet-400">cd</span> *click*
+        </label>
+        <p className="text-gray-400 text-sm font-light">
+          ## fast forward to primary page sections
+        </p>
+        <ul className="flex flex-col items-start gap-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out peer-checked:max-h-full peer-checked:opacity-100 mt-3">
           {links.map((element) => (
-            <li key={element.link}>
+            <li key={element.link} className="flex items-center justify-center">
               <Link
                 className="text-black dark:text-white py-2 pr-2 w-max hover:bg-black hover:text-white hover:transition-colors transition-colors dark:hover:invert"
                 href={element.link}

@@ -3,15 +3,16 @@ import ProjectCard from './ProjectCard';
 import { ProjectCardSkeleton } from '@/shared/ui';
 import { Project } from '@/shared/model';
 import { neededProjectsSearch } from '../lib/neededProjectsSearch';
+import { publicBaseUrl } from '@/shared/config';
 
 export default async function ProjectsWidget(): Promise<JSX.Element> {
-  const neededProjectsIds = [742777438, 651871385, 821314092];
+  const neededProjectsIds = [742777438, 821314092];
 
   let projects: Project[] | undefined;
   let error: string | undefined;
 
   try {
-    const response = await fetch(`http://localhost:3001/api/githubprojects/`);
+    const response = await fetch(`${publicBaseUrl}/api/githubprojects/`);
 
     const data = await response.json();
 
@@ -33,7 +34,7 @@ export default async function ProjectsWidget(): Promise<JSX.Element> {
       <div className="w-full mb-5" id="projects"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
-          <h2 className="text-2xl">
+          <h2 className="text-2xl text-black dark:text-white">
             <span className="text-violet-400">ls</span> ~/projects
           </h2>
           <p className="text-gray-400 font-light text-sm">

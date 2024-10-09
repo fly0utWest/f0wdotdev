@@ -10,7 +10,7 @@ export const BioSection: React.FC = () => {
       <div className="w-full mb-5" id="info"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
-          <h2 className="text-2xl">
+          <h2 className="text-2xl text-black dark:text-white">
             <span className="text-violet-400">cat</span> ~/info/info.md
           </h2>
           <p className="text-sm text-gray-400 font-light">
@@ -23,7 +23,7 @@ export const BioSection: React.FC = () => {
         <h3 className='text-base font-extrabold text-violet-400'>Languages</h3>
         <ul className='list-disc list-inside'>
           {languages.map(lang => (
-            <li className='text-base marker:text-violet-400' key={lang}>{lang}</li>
+            <li className='text-base text-black dark:text-white marker:text-violet-400' key={lang}>{lang}</li>
           ))}
         </ul>
       </section>

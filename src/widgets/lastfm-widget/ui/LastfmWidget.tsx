@@ -6,13 +6,16 @@ import ErrorTrackCard from './ErrorTrackCard';
 import LoadingTrackCard from './LoadingTrackCard';
 import TrackCard from './TrackCard';
 import { repeatCounterArray } from '../lib/repeatCount';
+import { publicBaseUrl } from '@/shared/config';
 
 export default async function LastfmWidget(): Promise<JSX.Element> {
   let tracks: Track[] | undefined;
   let error: string | undefined;
 
   try {
-    const response = await fetch('http://localhost:3000/api/lastfmtracks/');
+    const response = await fetch(`${publicBaseUrl}/api/lastfmtracks`, {
+      cache: 'no-store',
+    });
     const data = await response.json();
 
     if (!response.ok) {
@@ -33,8 +36,8 @@ export default async function LastfmWidget(): Promise<JSX.Element> {
       <div className="w-full mb-5" id="music"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
-          <h2 className="text-2xl">
-            <span className="text-violet-400">ls </span>
+          <h2 className="text-2xl text-black dark:text-white">
+            <span className="text-violet-400 text">ls </span>
             {'~/music'}
           </h2>
           <p className="text-gray-400 text-sm font-medium">
