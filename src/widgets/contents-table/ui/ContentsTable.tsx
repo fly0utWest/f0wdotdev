@@ -38,7 +38,7 @@ const ContentsTable = () => {
           {links.map((element) => (
             <li key={element.link}>
               <Link
-                className="py-2 pr-2 w-max hover:bg-black hover:text-white hover:transition-colors transition-colors dark:hover:invert"
+                className="text-black dark:text-white py-2 pr-2 w-max hover:bg-black hover:text-white hover:transition-colors transition-colors dark:hover:invert"
                 href={element.link}
               >
                 {element.description}
