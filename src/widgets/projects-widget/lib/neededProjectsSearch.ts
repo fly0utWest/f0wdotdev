@@ -1,7 +1,9 @@
+import { Project } from "@/shared/model";
+
 export function neededProjectsSearch(
-  targetArray: any[],
+  targetArray: Project[],
   neededIds: number[],
-): any[] {
+): Project[] {
   const resultArray: any = [];
 
   targetArray.forEach((element) => {

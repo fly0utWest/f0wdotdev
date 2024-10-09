@@ -1,24 +1,32 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
-import { useTracks } from '../model/useTracks';
+import { Track } from '@/shared/model';
 import ErrorTrackCard from './ErrorTrackCard';
 import LoadingTrackCard from './LoadingTrackCard';
 import TrackCard from './TrackCard';
+import { repeatCounterArray } from '../lib/repeatCount';
 
-const LastfmWidget = () => {
-  const { tracks, loading, error } = useTracks();
-  const [mounted, setMounted] = useState<boolean>(false);
+export default async function LastfmWidget(): Promise<JSX.Element> {
+  let tracks: Track[] | undefined;
+  let error: string | undefined;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  try {
+    const response = await fetch('http://localhost:3000/api/lastfmtracks/');
+    const data = await response.json();
 
-  if (!mounted) {
-    return null;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch tracks: ${response.status}`);
+    }
+
+    tracks = repeatCounterArray(data);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      error = err.message;
+    }
   }
+
+  const loading = !tracks && !error;
 
   return (
     <>
@@ -43,14 +51,10 @@ const LastfmWidget = () => {
         <div className="w-full">
           {error && !loading && <ErrorTrackCard />}
           {!error && loading && <LoadingTrackCard />}
-          {!error && !loading && (
-            <TrackCard track={tracks[0]} />
-          )}
+          {!error && !loading && <TrackCard track={tracks![0]} />}
         </div>
       </section>
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
-};
-
-export default LastfmWidget;
+}

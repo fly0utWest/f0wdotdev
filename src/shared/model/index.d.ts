@@ -13,8 +13,9 @@ interface MessageData {
 }
 
 interface Project {
-   name?: string,
-   html_url?: Url
-   description?: string,
-   pushed_at?: string
+  id: number;
+  name?: string;
+  html_url?: Url;
+  description?: string;
+  pushed_at?: string;
 }

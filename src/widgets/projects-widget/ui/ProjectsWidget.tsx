@@ -1,21 +1,32 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { useProjects } from '../model/useProjects';
+import React from 'react';
 import ProjectCard from './ProjectCard';
 import { ProjectCardSkeleton } from '@/shared/ui';
+import { Project } from '@/shared/model';
+import { neededProjectsSearch } from '../lib/neededProjectsSearch';
 
-const ProjectsWidget: React.FC = () => {
-  const { projects, error, loading } = useProjects();
-  const [mounted, setMounted] = useState<boolean>(false);
+export default async function ProjectsWidget(): Promise<JSX.Element> {
+  const neededProjectsIds = [742777438, 651871385, 821314092];
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  let projects: Project[] | undefined;
+  let error: string | undefined;
 
-  if (!mounted) {
-    return null;
+  try {
+    const response = await fetch(`http://localhost:3001/api/githubprojects/`);
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.status}`);
+    }
+
+    projects = neededProjectsSearch(data, neededProjectsIds);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      error = err.message;
+    }
   }
+
+  const loading = !projects && !error;
 
   return (
     <>
@@ -33,13 +44,15 @@ const ProjectsWidget: React.FC = () => {
           {loading && !error && <ProjectCardSkeleton />}
           {!loading &&
             !error &&
-            projects.map((project) => <ProjectCard key={project.name} project={project} />)}
-          {!loading && error && <p className="text-red-500 text-lg">Error occured</p>}
+            projects!.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          {!loading && error && (
+            <p className="text-red-500 text-lg">Error occurred: {error}</p>
+          )}
         </div>
       </section>
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
-};
-
-export default ProjectsWidget;
+}
