@@ -4,6 +4,7 @@ import { ProjectCardSkeleton } from '@/shared/ui';
 import { Project } from '@/shared/model';
 import { neededProjectsSearch } from '../lib/neededProjectsSearch';
 import { publicBaseUrl } from '@/shared/config';
+import axios, { AxiosError } from 'axios';
 
 export default async function ProjectsWidget(): Promise<JSX.Element> {
   const neededProjectsIds = [742777438, 821314092];
@@ -12,17 +13,15 @@ export default async function ProjectsWidget(): Promise<JSX.Element> {
   let error: string | undefined;
 
   try {
-    const response = await fetch(`${publicBaseUrl}/api/githubprojects/`);
+    const response = await axios.get(`${publicBaseUrl}/api/githubprojects/`, {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
+    });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.status}`);
-    }
-
-    projects = neededProjectsSearch(data, neededProjectsIds);
+    projects = neededProjectsSearch(response.data, neededProjectsIds);
   } catch (err: unknown) {
-    if (err instanceof Error) {
+    if (err instanceof AxiosError) {
       error = err.message;
     }
   }

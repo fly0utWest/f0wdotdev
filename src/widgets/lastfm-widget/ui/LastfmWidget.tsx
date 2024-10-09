@@ -7,24 +7,22 @@ import LoadingTrackCard from './LoadingTrackCard';
 import TrackCard from './TrackCard';
 import { repeatCounterArray } from '../lib/repeatCount';
 import { publicBaseUrl } from '@/shared/config';
+import axios, { AxiosError } from 'axios';
 
 export default async function LastfmWidget(): Promise<JSX.Element> {
   let tracks: Track[] | undefined;
   let error: string | undefined;
 
   try {
-    const response = await fetch(`${publicBaseUrl}/api/lastfmtracks`, {
-      cache: 'no-store',
+    const response = await axios.get(`${publicBaseUrl}/api/lastfmtracks`, {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
     });
-    const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch tracks: ${response.status}`);
-    }
-
-    tracks = repeatCounterArray(data);
+    tracks = repeatCounterArray(response.data);
   } catch (err: unknown) {
-    if (err instanceof Error) {
+    if (err instanceof AxiosError) {
       error = err.message;
     }
   }
