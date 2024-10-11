@@ -38,7 +38,7 @@ export function RootLayout({
                   <WarningIcon className="text-4xl" />
                   <p>
                     You have JavaScript in your browser disabled. Some features
-                    won't work properly.
+                    won&apos;t work properly.
                   </p>
                 </noscript>
                 {children}
