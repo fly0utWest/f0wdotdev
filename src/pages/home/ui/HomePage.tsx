@@ -6,6 +6,8 @@ import { LastfmWidget } from '@/widgets/lastfm-widget';
 import ShoutboxWidget from '@/widgets/shoutbox-widget/ui/ShoutboxWidget';
 import { SectionDelimeter } from '@/shared/ui';
 
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
   return (
     <>
