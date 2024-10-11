@@ -11,7 +11,7 @@ interface TrackCardProps {
 const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
   return (
     <div
-      className="flex flex-ro items-center border-2 min-w-fit min-h-32 border-black p-4 dark:border-white select-none"
+      className="flex flex-ro items-center border-2 min-w-fit min-h-32 border-black p-4 dark:border-white select-none text-black dark:text-white"
     >
       {track['@attr']?.nowplaying ? (
         <div className='flex flex-row items-center gap-4 text-sm'>

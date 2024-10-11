@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server';
 import axios, { AxiosError } from 'axios';
-import { lastfmUser, lastfmBaseUrl, trackLimit, lastfmApiKey } from '@/shared/config';
-
+import {
+  lastfmUser,
+  lastfmBaseUrl,
+  trackLimit,
+  lastfmApiKey,
+} from '@/shared/config';
 
 export const dynamic = 'force-dynamic';
 

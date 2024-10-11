@@ -21,7 +21,7 @@ const Header: React.FC = () => {
               <span className="text-black dark:text-white"> | ~{path} </span>
             </h1>
           </Link>
-          <span className="typed-[web_dev;linux_enthusiast;does_someone_even_read_this?] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-black dark:typed-caret-color-white"></span>
+          <span className="typed-[web_dev;linux_enthusiast;does_someone_even_read_this?] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-black dark:typed-caret-color-white text-black dark:text-white"></span>
         </div>
         <Image
           src={'/computer.gif'}

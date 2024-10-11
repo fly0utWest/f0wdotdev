@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <Link
       key={project.name}
       href={project.html_url}
-      className="p-4 min-h-24 transition-colors duration-150 border-2 border-black dark:border-white relative hover:text-white hover:bg-black hover:border-white dark:hover:text-black dark:hover:bg-white dark:hover:border-black"
+      className="p-4 min-h-24 transition-colors duration-150 border-2 border-black dark:border-white relative hover:text-white hover:bg-black hover:border-white dark:hover:text-black dark:hover:bg-white dark:hover:border-black text-black dark:text-white"
     >
       <h3 className="text-lg text-violet-400 flex gap-1 items-center">
         <GithubIcon className=" text-violet-400 w-6 h-6" />

@@ -62,7 +62,7 @@ const TechStack = () => {
       <div className="w-full mb-5" id="tech-stack"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
-          <h2 className="text-2xl">
+          <h2 className="text-2xl text-black dark:text-white">
             <span className="text-violet-400">cat</span> ~/tech-stack/readme.md
           </h2>
           <p className="text-gray-400 text-sm font-light">
@@ -77,7 +77,7 @@ const TechStack = () => {
                 <li key={element.dest}>
                   <Link
                     href={element.dest}
-                    className="flex flex-row items-center gap-2"
+                    className="flex flex-row items-center gap-2 text-black dark:text-white"
                   >
                     {element.icon}
                     {element.caption}
@@ -93,7 +93,7 @@ const TechStack = () => {
                 <li key={element.dest}>
                   <Link
                     href={element.dest}
-                    className="flex flex-row items-center gap-2"
+                    className="flex flex-row items-center gap-2 text-black dark:text-white"
                   >
                     {element.icon}
                     {element.caption}

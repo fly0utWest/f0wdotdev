@@ -5,9 +5,9 @@ const ToolsWidget: React.FC = () => {
   return (
     <>
       <div className="w-full mb-5" id="tools"></div>
-      <section className="w-full flex flex-col gap-3 mb-5">
+      <section className="w-full flex flex-col gap-3 mb-5 text-black dark:text-white">
         <div>
-          <h2 className="text-2xl">
+          <h2 className="text-2xl text-black dark:text-white">
             <span className="text-violet-400">ls</span> /dev/everything
           </h2>
           <p className="text-gray-400 text-sm font-light">

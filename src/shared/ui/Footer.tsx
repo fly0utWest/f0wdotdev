@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
-    <footer className=" flex flex-col justify-center items-center w-full mb-16 min-h-24 border-t-gray-600 border-x-0 border-x-black border-t-2 border-b-0 dark:border-x-white md:border-x-2 bg-white dark:bg-black">
+    <footer className=" flex flex-col justify-center items-center w-full mb-16 min-h-24 border-t-gray-600 border-x-0 border-x-black border-t-2 border-b-0 dark:border-x-white md:border-x-2 bg-white dark:bg-black text-black dark:text-white">
       <p className="text-sm text-center">
         Served with{' '}
         <Link className="underline" href="https://caddyserver.com">
