@@ -3,11 +3,13 @@ import ProjectCard from './ProjectCard';
 import { ProjectCardSkeleton } from '@/shared/ui';
 import { Project } from '@/shared/model';
 import { neededProjectsSearch } from '../lib/neededProjectsSearch';
-import { publicBaseUrl } from '@/shared/config';
+import { getDictionary, publicBaseUrl } from '@/shared/config';
 import axios, { AxiosError } from 'axios';
 
 export default async function ProjectsWidget(): Promise<JSX.Element> {
   const neededProjectsIds = [742777438, 821314092];
+
+  const dictionary = await getDictionary();
 
   let projects: Project[] | undefined;
   let error: string | undefined;
@@ -34,10 +36,10 @@ export default async function ProjectsWidget(): Promise<JSX.Element> {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl text-black dark:text-white">
-            <span className="text-violet-400">ls</span> ~/projects
+            <span className="text-violet-400">ls</span> {dictionary['home-page'].headings[2]}
           </h2>
           <p className="text-gray-400 font-light text-sm">
-            ## projects I&apos;ve worked on
+            {dictionary['home-page']['projects-tip']}
           </p>
         </div>
         <div className="flex flex-col gap-6">

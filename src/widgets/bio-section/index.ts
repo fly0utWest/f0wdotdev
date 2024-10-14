@@ -1,1 +1,1 @@
-export { BioSection } from "./ui/BioSection";
+export { default as BioSection } from "./ui/BioSection";

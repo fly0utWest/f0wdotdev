@@ -1,18 +1,36 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/shared/config';
+import { getDictionary } from '@/shared/config';
 
-const ContentsTable = () => {
-  interface ContentsList {
-    link: string;
-    description: string;
-  }
+interface ContentsList {
+  link: string;
+  description: string;
+}
+
+export default async function ContentsTable(): Promise<JSX.Element> {
+  const dictionary = await getDictionary();
 
   const links: ContentsList[] = [
-    { link: '#info', description: '> ./info/' },
-    { link: '#tech-stack', description: '> ./tech-stack/' },
-    { link: '#projects', description: '> ./projects/' },
-    { link: '#shoutbox', description: '> ./tg-shoutbox/' },
-    { link: '#music', description: '> ./music/' },
+    {
+      link: '#info',
+      description: dictionary['home-page']['contents-table'][0],
+    },
+    {
+      link: '#tech-stack',
+      description: dictionary['home-page']['contents-table'][1],
+    },
+    {
+      link: '#projects',
+      description: dictionary['home-page']['contents-table'][2],
+    },
+    {
+      link: '#shoutbox',
+      description: dictionary['home-page']['contents-table'][3],
+    },
+    {
+      link: '#music',
+      description: dictionary['home-page']['contents-table'][4],
+    },
   ];
 
   return (
@@ -27,10 +45,11 @@ const ContentsTable = () => {
           htmlFor="menu-toggle"
           className="text-2xl font-bold cursor-pointer text-black dark:text-white"
         >
-          <span className="text-violet-400">cd</span> *click*
+          <span className="text-violet-400">cd</span>{' '}
+          {dictionary['home-page']['click-tip']}
         </label>
         <p className="text-gray-400 text-sm font-light">
-          ## fast forward to primary page sections
+          {dictionary['home-page']['contents-table-tip']}
         </p>
         <ul className="flex flex-col items-start gap-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out peer-checked:max-h-full peer-checked:opacity-100 mt-3">
           {links.map((element) => (
@@ -48,6 +67,4 @@ const ContentsTable = () => {
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
-};
-
-export default ContentsTable;
+}

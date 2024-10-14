@@ -1,0 +1,1 @@
+export { HomePage as default, dynamic } from "@/pages/home";

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link, getDictionary } from '@/shared/config';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
 import { Track } from '@/shared/model';
 import ErrorTrackCard from './ErrorTrackCard';
@@ -10,6 +10,8 @@ import { publicBaseUrl } from '@/shared/config';
 import axios, { AxiosError } from 'axios';
 
 export default async function LastfmWidget(): Promise<JSX.Element> {
+  const dictionary = await getDictionary();
+
   let tracks: Track[] | undefined;
   let error: string | undefined;
 
@@ -36,10 +38,10 @@ export default async function LastfmWidget(): Promise<JSX.Element> {
         <div>
           <h2 className="text-2xl text-black dark:text-white">
             <span className="text-violet-400 text">ls </span>
-            {'~/music'}
+            {dictionary['home-page'].headings[4]}
           </h2>
           <p className="text-gray-400 text-sm font-medium">
-            ## tracks fetched from{' '}
+            {dictionary['home-page']['tracks-tip']}{' '}
             <Link
               className="text-violet-400 hover:underline"
               href="https://last.fm/user/fly0utwest"

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link, getDictionary } from '@/shared/config';
 import {
   BiLogoTypescript as TSLogo,
   BiLogoTailwindCss as TWLogo,
@@ -56,22 +56,24 @@ const langsList = [
   },
 ];
 
-const TechStack = () => {
+export default async function TechStack(): Promise<JSX.Element> {
+  const dictionary = await getDictionary();
+
   return (
     <>
       <div className="w-full mb-5" id="tech-stack"></div>
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl text-black dark:text-white">
-            <span className="text-violet-400">cat</span> ~/tech-stack/readme.md
+            <span className="text-violet-400">cat</span> {dictionary['home-page'].headings[2]}
           </h2>
           <p className="text-gray-400 text-sm font-light">
-            {"## technologies I'm working with on regular basis"}
-          </p> 
+            {dictionary['home-page']['tech-stack-tip']}
+          </p>
         </div>
         <div className="text-lg flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-y-2">
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min text-violet-400">langs/frameworks</h3>
+            <h3 className="w-min text-violet-400">{dictionary['home-page']['tech-stack-headings'][0]}</h3>
             <ul>
               {langsList.map((element) => (
                 <li key={element.dest}>
@@ -87,7 +89,7 @@ const TechStack = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min text-violet-400">infrastructure</h3>
+            <h3 className="w-min text-violet-400">{dictionary['home-page']['tech-stack-headings'][1]}</h3>
             <ul>
               {infrastructureList.map((element) => (
                 <li key={element.dest}>
@@ -107,6 +109,4 @@ const TechStack = () => {
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
-};
-
-export default TechStack;
+}

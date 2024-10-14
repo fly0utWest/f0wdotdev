@@ -1,0 +1,54 @@
+{
+  "home-page": {
+    "contents-table": [
+      "> ./info/",
+      "> ./tech-stack/",
+      "> ./projects/",
+      "> ./tg-shoutbox",
+      "> ./music/"
+    ],
+    "headings": [
+      "~/info/info.md",
+      "~/tech-stack/README.md",
+      "~/projects",
+      "/tg-shoutbox",
+      "~/music"
+    ],
+    "click-tip": "*click*",
+    "contents-table-tip": "## fast forward to primary page sections",
+    "bio-tip": "## some information about me",
+    "bio-content": "I'm Nikita Ablamskiy, 21 years old web developer with a burning passion for crafting scalable and user-friendly web apps that captivate users at first click. I'm always on the hunt, exploring new tech and frameworks to innovate and solve challenges. I have experience writing SPA with React and its server components, SCSS, Tailwind and TypeScript, using Feature Sliced Design as frontend methodology. I also have written some backend in NodeJS/Express. Now I look for new possibilities for learning and enhancing my abilities as a fullstack developer.",
+    "lang-heading": "Languages",
+    "bio-langs": ["English (B2+)", "Russian (native)", "Ukrainian (fluent)"],
+    "tech-stack-tip": "## technologies I'm working with on regular basis",
+    "tech-stack-headings": ["langs/frameworks", "infrastructure"],
+    "projects-tip": "## projects I've worked on",
+    "projects-card-tip": "Last updated on:",
+    "tg-shoutbox-tip": "## if you want to write something anonymously, you can do it here",
+    "tg-shoutbox-second-tip": "or, if you have something you'd like to discuss, dm me in tg -",
+    "tg-shoutbox-success": "Message was successfully sent",
+    "tg-shoutbox-failure": "Message was not successfully sent",
+    "tg-shoutbox-placeholder": "Write something",
+    "tg-shoutbox-sending": "Sending (｡ · ᎑ ·｡)",
+    "tracks-tip": "## tracks fetched from"
+  },
+  "about-page": {
+    "everything-tip": "## pieces of tech I use",
+    "devices-heading": "Devices",
+    "devices-content": "There's not much to say about here. I use Thinkpad T14s gen3, NixOS as daily driver. Text editors are VS Code and Vim, when needed."
+  },
+  "footer": {
+    "served-with": "Served with",
+    "location": "Somewhere in Tallin, Estonia",
+    "more": "You can read more about my setup",
+    "more-link": "here"
+  },
+  "nav-message": "Here might be a link to webring someday",
+  "noscript-warning": "You have JavaScript in your browser disabled. Some features won't work properly.",
+  "playing-now": "Playing now",
+  "nothing-playing": "Nothing is playing right now",
+  "track-error": "Error occurred, there won't be tracks :(",
+  "loading": "Loading...",
+  "updated-on": "Last updated on:",
+  "locales": ["English", "Russian"]
+}

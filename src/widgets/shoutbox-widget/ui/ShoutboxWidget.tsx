@@ -3,15 +3,18 @@
 import React, { useEffect } from 'react';
 import { BsSendArrowUp as SendIcon } from 'react-icons/bs';
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/shared/config';
 import Oval from 'react-loading-icons/dist/esm/components/oval';
 import { useTheme } from 'next-themes';
 import useShoutbox from '../model/useShoutbox';
+import { useDictionary } from '@/shared/config';
 
 const ShoutboxWidget: React.FC = () => {
-  const { message, failure, success, loading, sendMessage, setMessage } = useShoutbox();
+  const { message, failure, success, loading, sendMessage, setMessage } =
+    useShoutbox();
   const [mounted, setMounted] = useState<boolean>(false);
   const { theme } = useTheme();
+  const dictionary = useDictionary();
 
   useEffect(() => {
     setMounted(true);
@@ -27,21 +30,22 @@ const ShoutboxWidget: React.FC = () => {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl">
-            <span className="text-violet-400">curl -X POST</span> /tg-shoutbox
+            <span className="text-violet-400">curl -X POST</span>{' '}
+            {dictionary?.['home-page'].headings[3]}
           </h2>
           <p className="text-gray-400 font-light text-sm">
-            ## if you want to write something anonymously, you can do it here
+            {dictionary?.['home-page']['tg-shoutbox-tip']}
           </p>
         </div>
         <form onSubmit={sendMessage}>
           {!loading && !failure && success && (
             <p className="text-green-500 text-base">
-              Message was successfully sent
+              {dictionary?.['home-page']['tg-shoutbox-success']}
             </p>
           )}
           {!loading && failure && !success && (
             <p className="text-red-500 text-base">
-              Message was not successfully sent
+              {dictionary?.['home-page']['tg-shoutbox-failure']}
             </p>
           )}
           <div
@@ -54,7 +58,7 @@ const ShoutboxWidget: React.FC = () => {
                   stroke={`${theme === 'dark' ? '#fff' : '#000'}`}
                   className="h-6 w-6"
                 />
-                <p>Sending message...</p>
+                <p>{dictionary?.['home-page']['tg-shoutbox-sending']}</p>
               </div>
             )}
             <textarea
@@ -65,7 +69,7 @@ const ShoutboxWidget: React.FC = () => {
                 }));
               }}
               value={message?.text}
-              placeholder="Write something"
+              placeholder={dictionary?.['home-page']['tg-shoutbox-placeholder']}
               className="resize-none p-4 outline-0 w-full h-full bg-transparent"
             ></textarea>
             <button className="pr-4 w-min h-min">
@@ -73,7 +77,7 @@ const ShoutboxWidget: React.FC = () => {
             </button>
           </div>
           <p className="text-gray-400 font-light text-sm mt-1">
-            or, if you have something you&apos;d like to discuss, dm me in tg -{' '}
+            {dictionary?.['home-page']['tg-shoutbox-second-tip']}{' '}
             <Link
               href="https://t.me/fly0utwest"
               className="text-violet-400 hover:underline text-xs"

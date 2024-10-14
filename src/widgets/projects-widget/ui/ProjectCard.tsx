@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link, getDictionary } from '@/shared/config';
 import {
   LiaExternalLinkAltSolid as LinkIcon,
   LiaGithub as GithubIcon,
@@ -11,8 +11,8 @@ interface ProjectCardProps {
   project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-
+export default async function ProjectCard({ project }: ProjectCardProps): Promise<JSX.Element> {
+const dictionary = await getDictionary();
   return (
     <Link
       key={project.name}
@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </h3>
       <p className="font-medium text-base">{project.description}</p>
       <p className="font-medium text-sm text-gray-400 mt-4">
-          Last updated on: {dateFormatter(project.pushed_at!)}
+          {dictionary['updated-on']} {dateFormatter(project.pushed_at!)}
       </p>
       <div className="flex absolute top-0 right-0 m-2">
         <LinkIcon className=" text-violet-400 w-6 h-6" />
@@ -33,5 +33,3 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     </Link>
   );
 };
-
-export default ProjectCard;

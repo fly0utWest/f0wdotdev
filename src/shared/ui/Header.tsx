@@ -2,12 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { Link } from '../config';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
-const Header: React.FC = () => {
+export default async function Header(): Promise<JSX.Element> {
   const path = usePathname();
-  
+
   return (
     <header
       id="header"
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           <span className="typed-[web_dev;linux_enthusiast;does_someone_even_read_this?] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-black dark:typed-caret-color-white text-black dark:text-white"></span>
         </div>
         <Image
-          src={'/computer.gif'}
+          src={'/img/computer.gif'}
           width={64}
           height={64}
           alt="Header gif"
@@ -33,6 +33,4 @@ const Header: React.FC = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}
