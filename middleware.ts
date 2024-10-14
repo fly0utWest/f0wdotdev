@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-url', request.url);
 
-  const ignoredPaths = [/^\/img\/*$/, /^\/icon\.png$/];
+  const ignoredPaths = [/^\/img\/.*$/, /^\/icon\.png$/];
   if (ignoredPaths.some((regex) => regex.test(pathname))) {
     return;
   }
