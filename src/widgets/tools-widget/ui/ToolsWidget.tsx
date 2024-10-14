@@ -1,7 +1,10 @@
+import { getDictionary } from '@/shared/config';
 import Image from 'next/image';
 import React from 'react';
 
-const ToolsWidget: React.FC = () => {
+export default async function ToolsWidget(): Promise<JSX.Element> {
+  const dictionary = await getDictionary();
+
   return (
     <>
       <div className="w-full mb-5" id="tools"></div>
@@ -11,25 +14,32 @@ const ToolsWidget: React.FC = () => {
             <span className="text-violet-400">ls</span> /dev/everything
           </h2>
           <p className="text-gray-400 text-sm font-light">
-            {"## pieces of tech I use"}
+            {dictionary['about-page']['everything-tip']}
           </p>
         </div>
-        <h3>Devices</h3>
+        <h3>{dictionary['about-page']['devices-heading']}</h3>
         <p className="text-base font-medium">
-          There&apos;s not much to say about here. I use Thinkpad T14s gen3, NixOS as
-          daily driver. Text editors are VS Code and Vim, when needed.
+        {dictionary['about-page']['devices-content']}
         </p>
         <details>
-            <summary className='text-base font-bold cursor-pointer select-none'>neofetch</summary>
-            <figure>
-                <Image className='border-2 border-black dark:border-white' src={'/neofetch.png'} width={700} height={100} alt='neofetch'></Image>
-                <figcaption className='text-xs text-center mt-2'>i use nix, btw</figcaption>
-            </figure>
+          <summary className="text-base font-bold cursor-pointer select-none">
+            neofetch
+          </summary>
+          <figure>
+            <Image
+              className="border-2 border-black dark:border-white"
+              src={'/neofetch.png'}
+              width={700}
+              height={100}
+              alt="neofetch"
+            ></Image>
+            <figcaption className="text-xs text-center mt-2">
+              i use nix, btw
+            </figcaption>
+          </figure>
         </details>
       </section>
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
-};
-
-export default ToolsWidget;
+}
