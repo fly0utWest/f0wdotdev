@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Link } from '../config';
 import { usePathname } from 'next/navigation';
 
-export default async function Header(): Promise<JSX.Element> {
+const Header: React.FC = () => {
   const path = usePathname();
 
   return (
@@ -33,4 +33,6 @@ export default async function Header(): Promise<JSX.Element> {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
