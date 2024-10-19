@@ -1,1 +1,0 @@
-Here reside files like api keys and base urls for data fetching, but I won't store them in a public repo for obvious reasons.
