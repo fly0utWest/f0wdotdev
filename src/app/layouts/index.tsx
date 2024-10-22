@@ -21,6 +21,7 @@ export async function RootLayout({
   children: React.ReactNode;
 }>) {
   const dictionary = await getDictionary();
+  
   return (
     <html className="scroll-smooth" lang="en" suppressHydrationWarning>
       {process.env.UMAMI_SCRIPT_URL && process.env.UMAMI_WEBSITE_ID && (

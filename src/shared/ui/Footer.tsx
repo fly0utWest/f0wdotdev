@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, getDictionary } from '../config';
+import { LocaleSwitcher } from '@/features/locale-switcher';
 
 export default async function Footer(): Promise<JSX.Element> {
   const dictionary = await getDictionary();
@@ -21,6 +22,7 @@ export default async function Footer(): Promise<JSX.Element> {
           {dictionary.footer['more-link']}
         </Link>
       </p>
+      <LocaleSwitcher dict={dictionary.locales}/>
     </footer>
   );
 }
