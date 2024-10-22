@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { i18n, Locale } from '@/shared/config/';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,6 +18,17 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
     en: lang === 'en',
     ru: lang === 'ru',
   });
+
+  useEffect(() => {
+    setActiveLang({
+      en: lang === 'en',
+      ru: lang === 'ru',
+    });
+  }, [lang]);
+
+  useEffect(() => {
+    console.log(dict);
+  }, [dict])
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathname) return '/';
