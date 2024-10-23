@@ -5,6 +5,7 @@ import { i18n, Locale } from '@/shared/config/';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLang } from '@/shared/config/';
+import { useRouter } from 'next/navigation';
 
 interface LocaleSwitcherProps {
   dict: string[];
@@ -19,16 +20,14 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
     ru: lang === 'ru',
   });
 
+  const router = useRouter();
+  
   useEffect(() => {
     setActiveLang({
       en: lang === 'en',
       ru: lang === 'ru',
     });
   }, [lang]);
-
-  useEffect(() => {
-    console.log(dict);
-  }, [dict])
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathname) return '/';
@@ -42,24 +41,30 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
     return `/${segments.join('/')}`;
   };
 
+  const handlRedirect = (locale: Locale) => {
+    const newPathname = redirectedPathName(locale);
+    router.push(newPathname);
+    router.refresh();
+  };
+
   return (
     <div className="text-lg flex flex-row gap-4 justify-center items-center p-2 w-full">
-      <Link
+      <button
         className={`hover:underline text-black dark:text-white${
           activeLang.en ? ' underline' : ' no-underline'
         }`}
-        href={redirectedPathName('en')}
+        onClick={() => handlRedirect('en')}
       >
         {dict[0]}
-      </Link>
-      <Link
+      </button>
+      <button
         className={`hover:underline text-black dark:text-white${
           activeLang.ru ? ' underline' : ' no-underline'
         }`}
-        href={redirectedPathName('ru')}
+        onClick={() => handlRedirect('ru')}
       >
         {dict[1]}
-      </Link>
+      </button>
     </div>
   );
 };
