@@ -21,7 +21,7 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
   });
 
   const router = useRouter();
-
+  
   useEffect(() => {
     setActiveLang({
       en: lang === 'en',
