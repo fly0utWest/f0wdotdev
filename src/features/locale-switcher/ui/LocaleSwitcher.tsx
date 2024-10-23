@@ -15,19 +15,24 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
   const pathname = usePathname();
   const lang = useLang();
   const segments = pathname!.split('/').filter(Boolean);
+  const [mounted, setMounted] = useState(false);
   const [activeLang, setActiveLang] = useState({
     en: lang === 'en',
     ru: lang === 'ru',
   });
 
   const router = useRouter();
-  
+
   useEffect(() => {
     setActiveLang({
       en: lang === 'en',
       ru: lang === 'ru',
     });
   }, [lang]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathname) return '/';
@@ -46,6 +51,29 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ dict }) => {
     router.push(newPathname);
     router.refresh();
   };
+
+  if (!mounted) {
+    return (
+      <noscript className="text-lg flex flex-row gap-4 justify-center items-center p-2 w-full">
+        <Link
+          className={`hover:underline text-black dark:text-white${
+            activeLang.en ? ' underline' : ' no-underline'
+          }`}
+          href={redirectedPathName('en')}
+        >
+          {dict[0]}
+        </Link>
+        <Link
+          className={`hover:underline text-black dark:text-white${
+            activeLang.ru ? ' underline' : ' no-underline'
+          }`}
+          href={redirectedPathName('ru')}
+        >
+          {dict[1]}
+        </Link>
+      </noscript>
+    );
+  }
 
   return (
     <div className="text-lg flex flex-row gap-4 justify-center items-center p-2 w-full">
