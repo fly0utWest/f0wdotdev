@@ -17,7 +17,7 @@
     "click-tip": "*click*",
     "contents-table-tip": "## fast forward to primary page sections",
     "bio-tip": "## some information about me",
-    "bio-content": "I'm Nikita Ablamskiy, 21 years old web developer with a burning passion for crafting scalable and user-friendly web apps that captivate users at first click. I'm always on the hunt, exploring new tech and frameworks to innovate and solve challenges. I have experience writing SPA with React and its server components, SCSS, Tailwind and TypeScript, using Feature Sliced Design as frontend methodology. I also have written some backend in NodeJS/Express. Now I look for new possibilities for learning and enhancing my abilities as a fullstack developer.",
+    "bio-content": "I'm Nikita Ablamskiy, web developer with a burning passion for crafting scalable and user-friendly web apps that captivate users at first click. I'm always on the hunt, exploring new tech and frameworks to innovate and solve challenges. I have experience writing SPA with React and its server components, SCSS, Tailwind and TypeScript, using Feature Sliced Design as frontend methodology. I also have written some backend in NodeJS/Express. Now I look for new possibilities for learning and enhancing my abilities as a fullstack developer.",
     "lang-heading": "Languages",
     "bio-langs": ["English (B2+)", "Russian (native)", "Ukrainian (fluent)"],
     "tech-stack-tip": "## technologies I'm working with on regular basis",
