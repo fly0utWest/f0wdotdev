@@ -7,6 +7,7 @@ import {
   BiLogoTux as LinuxLogo,
   BiLogoReact as ReactLogo,
 } from 'react-icons/bi';
+import { RiSvelteFill as SvelteLogo } from 'react-icons/ri';
 import { RiNextjsFill as NextLogo } from 'react-icons/ri';
 import { GrMysql as MySqlLogo, GrDocker as DockerLogo } from 'react-icons/gr';
 
@@ -45,6 +46,11 @@ const langsList = [
     icon: <ReactLogo className="w-6 h-6" />,
   },
   {
+    dest: 'https://svelte.dev',
+    caption: 'svelte',
+    icon: <SvelteLogo className="w-6 h-6" />,
+  },
+  {
     dest: 'https://tailwindcss.com',
     caption: 'tailwind',
     icon: <TWLogo className="w-6 h-6" />,
@@ -65,7 +71,8 @@ export default async function TechStack(): Promise<JSX.Element> {
       <section className="w-full flex flex-col gap-3 mb-5">
         <div>
           <h2 className="text-2xl text-black dark:text-white">
-            <span className="text-violet-400">cat</span> {dictionary['home-page'].headings[2]}
+            <span className="text-violet-400">cat</span>{' '}
+            {dictionary['home-page'].headings[2]}
           </h2>
           <p className="text-gray-400 text-sm font-light">
             {dictionary['home-page']['tech-stack-tip']}
@@ -73,7 +80,9 @@ export default async function TechStack(): Promise<JSX.Element> {
         </div>
         <div className="text-lg flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-1 md:gap-y-2">
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min text-violet-400">{dictionary['home-page']['tech-stack-headings'][0]}</h3>
+            <h3 className="w-min text-violet-400">
+              {dictionary['home-page']['tech-stack-headings'][0]}
+            </h3>
             <ul>
               {langsList.map((element) => (
                 <li key={element.dest}>
@@ -89,7 +98,9 @@ export default async function TechStack(): Promise<JSX.Element> {
             </ul>
           </div>
           <div className="flex flex-col gap-2 md:items-center">
-            <h3 className="w-min text-violet-400">{dictionary['home-page']['tech-stack-headings'][1]}</h3>
+            <h3 className="w-min text-violet-400">
+              {dictionary['home-page']['tech-stack-headings'][1]}
+            </h3>
             <ul>
               {infrastructureList.map((element) => (
                 <li key={element.dest}>
