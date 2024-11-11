@@ -22,6 +22,7 @@ export default async function Footer(): Promise<JSX.Element> {
           {dictionary.footer['more-link']}
         </Link>
       </p>
+      <LocaleSwitcher dict={dictionary.locales}/>
     </footer>
   );
 }
