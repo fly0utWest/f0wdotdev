@@ -15,7 +15,23 @@ interface MessageData {
 interface Project {
   id: number;
   name?: string;
-  html_url?: Url;
+  link?: Url;
   description?: string;
-  pushed_at?: string;
+  descriptionRu?: string;
+  createdAt?: Date;
+  screenshot: string
+}
+
+interface Social {
+  id?: number;
+  link?: string;
+  name?: string;
+  icon?: string;
+}
+
+interface Tool {
+  id?: number;
+  name?: string;
+  icon?: string;
+  category?: string;
 }

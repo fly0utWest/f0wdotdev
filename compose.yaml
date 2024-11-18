@@ -4,27 +4,43 @@ services:
   nextjs:
     build: .
     environment:
-      - NODE_ENV=production  
+      - NODE_ENV=production
     ports:
-      - "3000:3000"  
+      - '3000:3000'
     networks:
       - webnet
 
   caddy:
     image: caddy:latest
     ports:
-      - "80:80"  
-      - "443:443"  
+      - '80:80'
+      - '443:443'
+      - '5555:5555'
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile  
-      - caddy_data:/data  
-      - caddy_config:/config  
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./images:/srv/images  
+    networks:
+      - webnet
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=f0wdotdevdbpasswd
+      - POSTGRES_DB=f0wdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
     networks:
       - webnet
 
 networks:
-  webnet:  
+  webnet:
 
 volumes:
-  caddy_data:  
+  caddy_data:
   caddy_config:
+  postgres_data:

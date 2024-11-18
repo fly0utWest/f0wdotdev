@@ -1,3 +1,8 @@
 fly0utwest.dev {
     reverse_proxy nextjs:3000
 }
+
+:5555 {
+    root * /srv/images
+    file_server browse
+}

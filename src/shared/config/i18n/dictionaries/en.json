@@ -23,7 +23,7 @@
     "tech-stack-tip": "## technologies I'm working with on regular basis",
     "tech-stack-headings": ["langs/frameworks", "infrastructure"],
     "projects-tip": "## projects I've worked on",
-    "projects-card-tip": "Last updated on:",
+    "projects-card-tip": "Created:",
     "tg-shoutbox-tip": "## if you want to write something anonymously, you can do it here",
     "tg-shoutbox-second-tip": "or, if you have something you'd like to discuss, dm me in tg -",
     "tg-shoutbox-success": "Message was successfully sent",
@@ -49,6 +49,6 @@
   "nothing-playing": "Nothing is playing right now",
   "track-error": "Error occurred, there won't be tracks :(",
   "loading": "Loading...",
-  "updated-on": "Last updated on:",
+  "created-on": "Created:",
   "locales": ["English", "Russian"]
 }
