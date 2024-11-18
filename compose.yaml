@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   nextjs:
     build: .
@@ -13,10 +15,12 @@ services:
     ports:
       - '80:80'
       - '443:443'
+      - '5555:5555'
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+      - ./images:/srv/images  
     networks:
       - webnet
 
@@ -25,9 +29,11 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=f0wdotdevdbpasswd
-      - POSTGRES_DB=f0wdb              
+      - POSTGRES_DB=f0wdb
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
     networks:
       - webnet
 

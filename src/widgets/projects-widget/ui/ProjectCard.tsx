@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, getDictionary } from '@/shared/config';
+import { Link, getDictionary, getLang } from '@/shared/config';
 import {
   LiaExternalLinkAltSolid as LinkIcon,
   LiaGithub as GithubIcon,
@@ -11,25 +11,44 @@ interface ProjectCardProps {
   project: Project;
 }
 
-export default async function ProjectCard({ project }: ProjectCardProps): Promise<JSX.Element> {
-const dictionary = await getDictionary();
+export default async function ProjectCard({
+  project,
+}: ProjectCardProps): Promise<JSX.Element> {
+  const lang = await getLang();
+  const dictionary = await getDictionary();
   return (
     <Link
       key={project.name}
-      href={project.html_url}
-      className="p-4 min-h-24 transition-colors duration-150 border-2 border-black dark:border-white relative hover:text-white hover:bg-black hover:border-white dark:hover:text-black dark:hover:bg-white dark:hover:border-black text-black dark:text-white"
+      href={project.link}
+      className="flex flex-col min-h-24 transition-all duration-150 border-2 border-black dark:border-white relative hover:text-white hover:bg-black  dark:hover:text-black dark:hover:bg-white text-black hover:border-black dark:text-white group hover:scale-[103%]"
     >
-      <h3 className="text-lg text-violet-400 flex gap-1 items-center">
-        <GithubIcon className=" text-violet-400 w-6 h-6" />
-        {project.name}
-      </h3>
-      <p className="font-medium text-base">{project.description}</p>
-      <p className="font-medium text-sm text-gray-400 mt-4">
-          {dictionary['updated-on']} {dateFormatter(project.pushed_at!)}
-      </p>
-      <div className="flex absolute top-0 right-0 m-2">
-        <LinkIcon className=" text-violet-400 w-6 h-6" />
+      <div className="relative">
+        <div className="bg-black bg-opacity-50 flex justify-center items-center absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="text-2xl text-violet-400">
+            {dictionary['home-page']['click-tip']}
+          </span>
+        </div>
+        <img
+          className="object-contain"
+          src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/projects/${project.screenshot}`}
+          alt="project screen"
+        />
+      </div>
+      <div className="p-4 h-full flex flex-col justify-between">
+        <div>
+          <h3 className="text-lg text-violet-400 flex gap-1 justify-between">
+            {project.name}
+            <LinkIcon className=" text-violet-400 w-6 h-6" />
+          </h3>
+          <p className="font-medium text-base">
+            {lang === 'en' ? project.description : project.descriptionRu}
+          </p>
+        </div>
+        <p className="font-medium text-sm text-gray-400 space-y mt-4">
+          {dictionary['created-on']}{' '}
+          <span>{dateFormatter(project.createdAt!)}</span>
+        </p>
       </div>
     </Link>
   );
-};
+}

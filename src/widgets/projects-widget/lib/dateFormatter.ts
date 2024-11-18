@@ -1,14 +1,16 @@
-export function dateFormatter(date: string) {
-  const truncatedDate = date.slice(0, 10);
+export function dateFormatter(date: string | Date | null): string {
+  if (!date) {
+    return 'Invalid date';
+  }
 
-  const [year, month, day] = truncatedDate.split('-');
+  const dateObj = new Date(date);
+  if (isNaN(dateObj.getTime())) {
+    return 'Invalid date';
+  }
 
-  const months =
-  ['January', 'February', 'March', 'April',
-   'May', 'June', 'July', 'August',
-   'September', 'October', 'November', 'December'];
+  const day = dateObj.getDate().toString().padStart(2, '0');
+  const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+  const year = dateObj.getFullYear();
 
-  const resultData = `${months[Number(month) - 1]} ${day}th, ${year}`;
-
-  return resultData;
+  return `${day}.${month}.${year}`;
 }
