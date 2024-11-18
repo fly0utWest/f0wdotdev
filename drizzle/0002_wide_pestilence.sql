@@ -1,1 +1,0 @@
-ALTER TABLE "tools" ADD COLUMN "category" text;
