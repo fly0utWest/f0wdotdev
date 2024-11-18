@@ -1,0 +1,1 @@
+ALTER TABLE "tools" ALTER COLUMN "category" SET NOT NULL;
