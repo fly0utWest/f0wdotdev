@@ -38,9 +38,8 @@ const NavSide = async (): Promise<JSX.Element> => {
             <p className="text-red-500">{error}</p>
           ) : socialsData.length ? (
             socialsData.map((social) => (
-              <Link href={social.link!}>
+              <Link key={social.id} href={social.link!}>
                 <Image
-                  key={social.id}
                   src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/socials/${social.icon}`}
                   width={24}
                   height={24}
