@@ -14,8 +14,8 @@ export const projects = pgTable('projects', {
 
 export const socials = pgTable('socials', {
   id: serial('id').primaryKey(),
-  name: text('link').notNull(),
-  link: text('name').notNull(),
+  name: text('name').notNull(),
+  link: text('link').notNull(),
   icon: text('icon').notNull(),
 });
 
