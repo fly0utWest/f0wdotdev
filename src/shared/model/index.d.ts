@@ -24,8 +24,8 @@ interface Project {
 
 interface Social {
   id?: number;
-  link?: string;
   name?: string;
+  link?: string;
   icon?: string;
 }
 
