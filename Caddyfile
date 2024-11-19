@@ -2,7 +2,15 @@ fly0utwest.dev {
     reverse_proxy nextjs:3000
 }
 
-localhost:5555 {
+:5555 {
     root * /srv/images
-    file_server browse
+    file_server
+}
+
+images.fly0utwest.dev {
+    tls {
+        on_demand
+    
+    }
+    reverse_proxy :5555
 }
