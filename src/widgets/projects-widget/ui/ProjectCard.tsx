@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, getDictionary, getLang } from '@/shared/config';
-import {
-  LiaExternalLinkAltSolid as LinkIcon,
-  LiaGithub as GithubIcon,
-} from 'react-icons/lia';
-import { Project } from '@/shared/model';
+import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
+import { ProjectWithTools, Tool } from '@/shared/config/db/schema';
 import { dateFormatter } from '../lib/dateFormatter';
+import Image from 'next/image';
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectWithTools;
 }
 
 export default async function ProjectCard({
@@ -16,6 +14,7 @@ export default async function ProjectCard({
 }: ProjectCardProps): Promise<JSX.Element> {
   const lang = await getLang();
   const dictionary = await getDictionary();
+
   return (
     <Link
       key={project.name}
@@ -34,7 +33,7 @@ export default async function ProjectCard({
           alt="project screen"
         />
       </div>
-      <div className="p-4 h-full flex flex-col justify-between">
+      <div className="p-4 h-full flex gap-4 flex-col justify-between">
         <div>
           <h3 className="text-lg text-violet-400 flex gap-1 justify-between">
             {project.name}
@@ -44,10 +43,29 @@ export default async function ProjectCard({
             {lang === 'en' ? project.description : project.descriptionRu}
           </p>
         </div>
-        <p className="font-medium text-sm text-gray-400 space-y mt-4">
-          {dictionary['created-on']}{' '}
-          <span>{dateFormatter(project.createdAt!)}</span>
-        </p>
+        <div>
+          <div className="w-full">
+            <h4 className="text-lg text-violet-400 hover:text-violet-400">
+              {dictionary['home-page']['project-created-with']}
+            </h4>
+            <div className="flex flex-row gap-4">
+              {project.tools.map((tool: Tool) => (
+                <Image
+                  className="dark:invert dark:group-hover:invert-0 group-hover:invert"
+                  key={tool.icon}
+                  src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${tool.icon}`}
+                  width={20}
+                  height={20}
+                  alt="Tool icon"
+                ></Image>
+              ))}
+            </div>
+          </div>
+          <p className="font-medium text-sm text-gray-400 space-y mt-4">
+            {dictionary['created-on']}{' '}
+            <span>{dateFormatter(project.releasedAt!)}</span>
+          </p>
+        </div>
       </div>
     </Link>
   );

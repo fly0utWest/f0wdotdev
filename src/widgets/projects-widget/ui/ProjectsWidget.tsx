@@ -1,32 +1,43 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import { ProjectCardSkeleton } from '@/shared/ui';
-import { Project } from '@/shared/model';
+import { ProjectWithTools } from '@/shared/config/db/schema';
 import { getDictionary } from '@/shared/config';
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { projects } from '@/shared/config/db/schema';
 import { unstable_cache } from 'next/cache';
+import { db } from '@/db';
+import ErrorDB from '@/shared/ui/ErrorDB';
 
 export default async function ProjectsWidget(): Promise<JSX.Element> {
-  const db = drizzle(process.env.DATABASE_URL!);
   const dictionary = await getDictionary();
 
-  let projectsData: Project[] | undefined;
-  let error: string | undefined;
+  let projectsData: ProjectWithTools[] | undefined;
+  let error: boolean | undefined;
 
   const getProjects = unstable_cache(
     async () => {
-      const projectsSet = await db.select().from(projects);
-      return projectsSet;
+      const result = await db.query.projects.findMany({
+        with: {
+          tools: {
+            with: {
+              tool: true,
+            },
+          },
+        },
+        orderBy: (projects, { desc }) => [desc(projects.releasedAt)],
+      });
+      return result.map((project) => ({
+        ...project,
+        tools: project.tools.map((relation) => relation.tool),
+      }));
     },
     undefined,
-    { revalidate: 43200 }
+    { revalidate: 43200 },
   );
 
   try {
     projectsData = await getProjects();
   } catch (err) {
-    error = 'Something went wrong during fetch from DB.';
+    error = true;
   }
 
   const loading = !projectsData && !error;
@@ -47,16 +58,13 @@ export default async function ProjectsWidget(): Promise<JSX.Element> {
         <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
           {loading && <ProjectCardSkeleton />}
           {!loading &&
-            projectsData?.map((project) => (
-              <ProjectCard key={project.name} project={project} />
+            projectsData?.map((project: ProjectWithTools) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
-          {error && (
-            <p className="text-red-500 text-lg">Error occurred: {error}</p>
-          )}
+          {error && <ErrorDB>{dictionary['error-db']}</ErrorDB>}
         </div>
       </section>
       <hr className="border-gray-600 w-full mb-10" />
     </>
   );
 }
-``

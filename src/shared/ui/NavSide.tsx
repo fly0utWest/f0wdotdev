@@ -1,14 +1,17 @@
 import React from 'react';
 import { ThemeSwitcher } from '@/features/theme-switcher';
 import { unstable_cache } from 'next/cache';
-import { drizzle } from 'drizzle-orm/node-postgres';
 import { socials } from '../config/db/schema';
-import { Social } from '../model';
+import { Social } from '../config/db/schema';
 import Image from 'next/image';
 import Link from 'next/link';
+import { db } from '@/db';
+import { getDictionary } from '../config';
+import { MdError as ErrorIcon } from 'react-icons/md';
+import ErrorDB from './ErrorDB';
 
 const NavSide = async (): Promise<JSX.Element> => {
-  const db = drizzle(process.env.DATABASE_URL!);
+  const dictionary = await getDictionary();
 
   const getSocials = unstable_cache(
     async () => {
@@ -20,13 +23,12 @@ const NavSide = async (): Promise<JSX.Element> => {
   );
 
   let socialsData: Social[] = [];
-  let error: string | undefined;
+  let error: boolean | undefined;
 
   try {
     socialsData = await getSocials();
-    console.log(socialsData);
   } catch (err) {
-    error = 'Something went wrong during fetch from DB.';
+    error = true;
   }
 
   return (
@@ -35,7 +37,9 @@ const NavSide = async (): Promise<JSX.Element> => {
         <ThemeSwitcher />
         <div className="flex flex-row gap-4 md:flex-col">
           {error ? (
-            <p className="text-red-500">{error}</p>
+            <div className="flex flex-row gap-4">
+              <ErrorDB>{dictionary['error-db']}</ErrorDB>
+            </div>
           ) : socialsData.length ? (
             socialsData.map((social) => (
               <Link key={social.id} href={social.link!}>

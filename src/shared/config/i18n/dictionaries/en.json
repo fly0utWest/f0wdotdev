@@ -24,6 +24,7 @@
     "tech-stack-headings": ["langs/frameworks", "infrastructure"],
     "projects-tip": "## projects I've worked on",
     "projects-card-tip": "Created:",
+    "project-created-with": "Stack",
     "tg-shoutbox-tip": "## if you want to write something anonymously, you can do it here",
     "tg-shoutbox-second-tip": "or, if you have something you'd like to discuss, dm me in tg -",
     "tg-shoutbox-success": "Message was successfully sent",
@@ -48,6 +49,7 @@
   "playing-now": "Playing now",
   "nothing-playing": "Nothing is playing right now",
   "track-error": "Error occurred, there won't be tracks :(",
+  "error-db": "Error during DB data request",
   "loading": "Loading...",
   "created-on": "Created:",
   "locales": ["English", "Russian"]
