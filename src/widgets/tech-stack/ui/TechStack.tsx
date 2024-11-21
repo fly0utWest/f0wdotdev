@@ -66,7 +66,7 @@ export default async function TechStack(): Promise<JSX.Element> {
               <ul className="flex flex-col gap-3">
                 {devTools.map((devTool) => (
                   <Link key={devTool.id} href={devTool.link}>
-                    <li className="flex flex-row items-center gap-4">
+                    <li className="flex flex-row items-center gap-4 text-black dark:text-white">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${devTool.icon}`}
                         width={24}
@@ -87,7 +87,7 @@ export default async function TechStack(): Promise<JSX.Element> {
               <ul className="flex flex-col gap-3">
                 {infTools.map((infTool) => (
                   <Link key={infTool.id} href={infTool.link}>
-                    <li className="flex flex-row items-center gap-4">
+                    <li className="flex flex-row items-center gap-4 text-black dark:text-white">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${infTool.icon}`}
                         width={24}
