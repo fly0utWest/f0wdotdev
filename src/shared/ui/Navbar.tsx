@@ -33,7 +33,7 @@ export default async function Navbar(): Promise<JSX.Element> {
 
         <Link
           className="dark:invert text-center"
-          href={userData?.curr?.url || '#'}
+          href={process.env.WEBRING_PUBLIC_URL || '#'}
         >
           {dictionary['nav-message']}
         </Link>
