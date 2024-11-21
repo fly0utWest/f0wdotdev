@@ -13,6 +13,9 @@ const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "fly0utwest's lair",
   description: 'a portfolio site',
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export async function RootLayout({
@@ -24,13 +27,7 @@ export async function RootLayout({
 
   return (
     <html className="scroll-smooth" lang="en" suppressHydrationWarning>
-      <head>
-        <head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/icon.png" type="image/png" sizes="192x192" />
-          <link rel="apple-touch-icon" href="/icon.png" sizes="180x180" />
-        </head>
-      </head>
+      <head />
       {process.env.UMAMI_SCRIPT_URL && process.env.UMAMI_WEBSITE_ID && (
         <Script
           src={process.env.UMAMI_SCRIPT_URL}
