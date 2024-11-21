@@ -48,7 +48,7 @@ export default async function ProjectCard({
             <h4 className="text-lg text-violet-400 hover:text-violet-400">
               {dictionary['home-page']['project-created-with']}
             </h4>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 flex-wrap">
               {project.tools.map((tool: Tool) => (
                 <Image
                   className="dark:invert dark:group-hover:invert-0 group-hover:invert"
