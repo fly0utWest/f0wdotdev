@@ -6,8 +6,29 @@ export interface Track {
   repeatCount?: number;
 }
 
-interface MessageData {
+export interface MessageData {
   text?: string;
   userAgent?: string;
   ip?: string;
+}
+
+export interface UserRingData {
+  prev: {
+    id: number;
+    name: string;
+    url: string;
+    favicon?: string | null;
+  };
+  curr: {
+    id: number;
+    name: string;
+    url: string;
+    favicon?: string | null;
+  };
+  next: {
+    id: number;
+    name: string;
+    url: string;
+    favicon?: string | null;
+  };
 }
