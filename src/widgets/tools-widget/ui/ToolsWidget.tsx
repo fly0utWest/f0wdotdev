@@ -28,7 +28,7 @@ export default async function ToolsWidget(): Promise<JSX.Element> {
           <figure>
             <Image
               className="border-2 border-black dark:border-white"
-              src={'/img/neofetch.png'}
+              src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/neofetch.png`}
               width={700}
               height={100}
               alt="neofetch"

@@ -10,7 +10,7 @@ const LoadingTrackCard = () => {
     <div className="flex flex-row items-center gap-4 min-w-fit min-h-32 text-sm border-2 border-black p-4 dark:border-white text-black dark:text-white">
     <Image
       alt="Music loading"
-      src={'/music-loading.gif'}
+      src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/music-loading.gif`}
       width={60}
       height={60}
     ></Image>

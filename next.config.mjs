@@ -9,9 +9,9 @@ const nextConfig = {
         pathname: '/i/**',
       },
       {
-        protocol: 'http',
-        port: '5555',
-        hostname: 'localhost',
+        protocol: 'https',
+        port: '',
+        hostname: 'images.fly0utwest.dev',
         pathname: '/**',
       },
     ],
