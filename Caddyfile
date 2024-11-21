@@ -1,5 +1,10 @@
 fly0utwest.dev {
     reverse_proxy nextjs:3000
+
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
 }
 
 :5555 {
@@ -9,8 +14,8 @@ fly0utwest.dev {
 
 images.fly0utwest.dev {
     tls {
-        on_demand
-    
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
     }
     reverse_proxy :5555
 }

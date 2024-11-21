@@ -9,7 +9,9 @@ services:
       - webnet
 
   caddy:
-    image: caddy:latest
+    image: ghcr.io/iarekylew00t/caddy-cloudflare:latest
+    environment:
+      - CF_API_TOKEN=${CF_API_TOKEN}
     ports:
       - '80:80'
       - '443:443'
