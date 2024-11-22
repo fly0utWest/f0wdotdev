@@ -6,7 +6,7 @@ import { Social } from '../config/db/schema';
 import Image from 'next/image';
 import Link from 'next/link';
 import { db } from '@/db';
-import { getDictionary } from '../config';
+import { getDictionary, publicImagesBaseUrl } from '../config';
 import { MdError as ErrorIcon } from 'react-icons/md';
 import ErrorDB from './ErrorDB';
 
@@ -44,7 +44,7 @@ const NavSide = async (): Promise<JSX.Element> => {
             socialsData.map((social) => (
               <Link key={social.id} href={social.link!}>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/socials/${social.icon}`}
+                  src={`${publicImagesBaseUrl}/icons/socials/${social.icon}`}
                   width={24}
                   height={24}
                   alt="social icon"

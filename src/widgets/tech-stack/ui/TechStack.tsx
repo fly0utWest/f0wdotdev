@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDictionary } from '@/shared/config';
+import { getDictionary, publicImagesBaseUrl } from '@/shared/config';
 import { Tool } from '@/shared/config/db/schema';
 import { unstable_cache } from 'next/cache';
 import { tools } from '@/shared/config/db/schema';
@@ -68,7 +68,7 @@ export default async function TechStack(): Promise<JSX.Element> {
                   <Link key={devTool.id} href={devTool.link}>
                     <li className="flex flex-row items-center gap-4 text-black dark:text-white">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${devTool.icon}`}
+                        src={`${publicImagesBaseUrl}/icons/tools/${devTool.icon}`}
                         width={24}
                         height={24}
                         alt="tool icon"
@@ -89,7 +89,7 @@ export default async function TechStack(): Promise<JSX.Element> {
                   <Link key={infTool.id} href={infTool.link}>
                     <li className="flex flex-row items-center gap-4 text-black dark:text-white">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${infTool.icon}`}
+                        src={`${publicImagesBaseUrl}/icons/tools/${infTool.icon}`}
                         width={24}
                         height={24}
                         alt="tool icon"

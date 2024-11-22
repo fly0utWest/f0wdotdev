@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, getDictionary, getLang } from '@/shared/config';
+import { Link, getDictionary, getLang, publicImagesBaseUrl } from '@/shared/config';
 import { LiaExternalLinkAltSolid as LinkIcon } from 'react-icons/lia';
 import { ProjectWithTools, Tool } from '@/shared/config/db/schema';
 import { dateFormatter } from '../lib/dateFormatter';
@@ -29,7 +29,7 @@ export default async function ProjectCard({
         </div>
         <img
           className="object-contain"
-          src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/projects/${project.screenshot}`}
+          src={`${publicImagesBaseUrl}/projects/${project.screenshot}`}
           alt="project screen"
         />
       </div>
@@ -53,7 +53,7 @@ export default async function ProjectCard({
                 <Image
                   className="dark:invert dark:group-hover:invert-0 group-hover:invert"
                   key={tool.icon}
-                  src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/icons/tools/${tool.icon}`}
+                  src={`${publicImagesBaseUrl}/icons/tools/${tool.icon}`}
                   width={20}
                   height={20}
                   alt="Tool icon"

@@ -3,6 +3,7 @@ import { Link } from '../config';
 import { getDictionary } from '../config';
 import axios from 'axios';
 import { UserRingData } from '../model';
+import { webringPublicUrl, webringUserId } from '../config';
 
 export default async function Navbar(): Promise<JSX.Element> {
   const dictionary = await getDictionary();
@@ -10,7 +11,7 @@ export default async function Navbar(): Promise<JSX.Element> {
 
   try {
     const response = await axios.get<UserRingData>(
-      `${process.env.WEBRING_PUBLIC_URL}/${process.env.WEBRING_USER_ID}/data`,
+      `${webringPublicUrl}/${webringUserId}/data`,
     );
     userData = response.data;
   } catch (error) {

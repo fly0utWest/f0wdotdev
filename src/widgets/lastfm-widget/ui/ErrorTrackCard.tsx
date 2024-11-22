@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { getDictionary } from '@/shared/config';
+import { getDictionary, publicImagesBaseUrl } from '@/shared/config';
 
 export default async function ErrorTrackCard(): Promise<JSX.Element> {
   const dictionary = await getDictionary();
@@ -9,7 +9,7 @@ export default async function ErrorTrackCard(): Promise<JSX.Element> {
     <div className="flex flex-row items-center gap-4 min-w-fit min-h-32 text-sm border-2 border-black p-4 dark:border-white text-black dark:text-white">
       <Image
         alt="Music error"
-        src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/music-error.gif`}
+        src={`${publicImagesBaseUrl}/static/music-error.gif`}
         width={60}
         height={60}
       ></Image>
