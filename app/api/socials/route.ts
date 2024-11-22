@@ -1,1 +1,1 @@
-export { GET } from '@/shared/api/socials/index';
+export { GET } from '@/shared/api/socials/';
