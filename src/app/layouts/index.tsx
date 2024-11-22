@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "fly0utwest's lair",
   description: 'a portfolio site',
   icons: {
-    icon: "/icon.png"
+    icon: "/favicon.png"
   }
 };
 
