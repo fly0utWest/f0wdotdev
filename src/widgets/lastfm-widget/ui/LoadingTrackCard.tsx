@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Oval from 'react-loading-icons/dist/esm/components/oval'
 import { useTheme } from 'next-themes'
+import { publicImagesBaseUrl } from '@/shared/config'
 
 const LoadingTrackCard = () => {
   const {theme} = useTheme();
@@ -10,7 +11,7 @@ const LoadingTrackCard = () => {
     <div className="flex flex-row items-center gap-4 min-w-fit min-h-32 text-sm border-2 border-black p-4 dark:border-white text-black dark:text-white">
     <Image
       alt="Music loading"
-      src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/music-loading.gif`}
+      src={`${publicImagesBaseUrl}/static/music-loading.gif`}
       width={60}
       height={60}
     ></Image>

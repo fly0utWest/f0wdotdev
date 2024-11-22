@@ -1,6 +1,7 @@
 import { getDictionary } from '@/shared/config';
 import Image from 'next/image';
 import React from 'react';
+import { publicImagesBaseUrl } from '@/shared/config';
 
 export default async function ToolsWidget(): Promise<JSX.Element> {
   const dictionary = await getDictionary();
@@ -28,7 +29,7 @@ export default async function ToolsWidget(): Promise<JSX.Element> {
           <figure>
             <Image
               className="border-2 border-black dark:border-white"
-              src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/neofetch.png`}
+              src={`${publicImagesBaseUrl}/static/neofetch.png`}
               width={700}
               height={100}
               alt="neofetch"

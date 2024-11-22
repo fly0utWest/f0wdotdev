@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Link } from '../config';
+import { Link, publicImagesBaseUrl } from '../config';
 import { usePathname } from 'next/navigation';
 
 const Header: React.FC = () => {
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           <span className="typed-[web_dev;linux_enthusiast;does_someone_even_read_this?] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-black dark:typed-caret-color-white text-black dark:text-white"></span>
         </div>
         <Image
-          src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/static/computer.gif`}
+          src={`${publicImagesBaseUrl}/static/computer.gif`}
           width={64}
           height={64}
           alt="Header gif"
