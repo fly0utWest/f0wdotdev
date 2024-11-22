@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../config';
+import { Link, publicBaseUrl } from '../config';
 import { getDictionary } from '../config';
 import axios from 'axios';
 import { UserRingData } from '../model';
@@ -11,7 +11,7 @@ export default async function Navbar(): Promise<JSX.Element> {
 
   try {
     const response = await axios.get<UserRingData>(
-      `${webringPublicUrl}/${webringUserId}/data`,
+      `${publicBaseUrl}/api/webring`,
     );
     userData = response.data;
   } catch (error) {
