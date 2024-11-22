@@ -13,9 +13,6 @@ const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "fly0utwest's lair",
   description: 'a portfolio site',
-  icons: {
-    icon: "/favicon.png"
-  }
 };
 
 export async function RootLayout({
