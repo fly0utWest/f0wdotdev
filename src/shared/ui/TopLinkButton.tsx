@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { GoMoveToTop as ToTheTopIcon } from 'react-icons/go';
-import { Link } from '../config';
+import Link from 'next/link';
 
 const TopLinkButton: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false);
