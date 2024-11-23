@@ -1,14 +1,15 @@
 import { MetadataRoute } from 'next';
+import { canonicalUrl } from '@/shared/config';
 
 export function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `${process.env.CANONICAL_URL}/`,
+      url: `${canonicalUrl}/`,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${process.env.CANONICAL_URL}/about`,
+      url: `${canonicalUrl}/about`,
       changeFrequency: 'weekly',
       priority: 0.7,
     },

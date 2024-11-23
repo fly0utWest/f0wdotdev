@@ -5,12 +5,13 @@ import { ThemeProvider } from 'next-themes';
 import '../styles';
 import Script from 'next/script';
 import { IoWarning as WarningIcon } from 'react-icons/io5';
-import { getDictionary } from '@/shared/config';
+import { canonicalUrl, getDictionary } from '@/shared/config';
 import { LocaleSwitcher } from '@/features/locale-switcher';
 
 const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(canonicalUrl!),
   title: "fly0utwest's lair",
   description: "A personal site and CV",
 };
