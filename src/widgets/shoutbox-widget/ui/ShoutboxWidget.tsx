@@ -70,7 +70,7 @@ const ShoutboxWidget: React.FC = () => {
               }}
               value={message?.text}
               placeholder={dictionary?.['home-page']['tg-shoutbox-placeholder']}
-              className="resize-none p-4 outline-0 w-full h-full bg-transparent"
+              className="resize-none p-4 outline-none w-full h-full bg-transparent"
             ></textarea>
             <button className="pr-4 w-min h-min">
               <SendIcon className="h-6 w-6 hover:text-violet-400 transition-colors duration-200 bg-transparent" />
