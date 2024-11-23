@@ -16,4 +16,6 @@ export { Link } from './i18n/Link';
 export { useDictionary } from './i18n/useDictionary';
 export { useLang } from './i18n/useLang';
 
+export { canonicalUrl } from './canonicalUrl';
+
 export { webringPublicUrl, webringUserId } from './webring';

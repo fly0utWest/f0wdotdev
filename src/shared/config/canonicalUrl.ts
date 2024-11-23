@@ -1,0 +1,1 @@
+export const canonicalUrl = process.env.CANONICAL_URL
