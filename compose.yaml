@@ -12,6 +12,8 @@ services:
     image: ghcr.io/iarekylew00t/caddy-cloudflare:latest
     environment:
       - CF_API_TOKEN=${CF_API_TOKEN}
+      - CADDY_RP_DOMAIN=${CADDY_RP_DOMAIN}
+      - CADDY_RP_IMAGE_SUBDOMAIN=${CADDY_RP_IMAGE_SUBDOMAIN}
     ports:
       - '80:80'
       - '443:443'
