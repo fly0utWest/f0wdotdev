@@ -1,4 +1,4 @@
-{env.CADDY_RP_DOMAIN} {
+{$CADDY_RP_DOMAIN} {
     reverse_proxy nextjs:3000
 
     tls {
@@ -12,7 +12,7 @@
     file_server
 }
 
-{CADDY_RP_IMAGE_SUBDOMAIN} {
+{$CADDY_RP_IMAGE_SUBDOMAIN} {
     tls {
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
