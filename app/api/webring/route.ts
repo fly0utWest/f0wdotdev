@@ -1,1 +1,1 @@
-export { GET } from '@/shared/api/webring';
+export { GET, dynamic } from '@/shared/api/webring';
