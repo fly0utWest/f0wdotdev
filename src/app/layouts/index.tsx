@@ -7,7 +7,6 @@ import Script from 'next/script';
 import { IoWarning as WarningIcon } from 'react-icons/io5';
 import { canonicalUrl, getDictionary, getLang } from '@/shared/config';
 import { LocaleSwitcher } from '@/features/locale-switcher';
-import { getLang } from '@/shared/config';
 
 const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 
