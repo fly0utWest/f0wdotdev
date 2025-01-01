@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import '../styles';
 import Script from 'next/script';
 import { IoWarning as WarningIcon } from 'react-icons/io5';
-import { canonicalUrl, getDictionary } from '@/shared/config';
+import { canonicalUrl, getDictionary, getLang } from '@/shared/config';
 import { LocaleSwitcher } from '@/features/locale-switcher';
 
 const JBmono = JetBrains_Mono({ subsets: ['latin'] });
@@ -13,7 +13,7 @@ const JBmono = JetBrains_Mono({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL(canonicalUrl!),
   title: "fly0utwest's lair",
-  description: "A personal site and CV",
+  description: 'A personal site and CV',
 };
 
 export async function RootLayout({
@@ -22,9 +22,14 @@ export async function RootLayout({
   children: React.ReactNode;
 }>) {
   const dictionary = await getDictionary();
+  const locale = await getLang();
 
   return (
-    <html className="scroll-smooth" lang="en" suppressHydrationWarning>
+    <html
+      className="scroll-smooth overscroll-none"
+      lang={locale}
+      suppressHydrationWarning
+    >
       <head />
       {process.env.UMAMI_SCRIPT_URL && process.env.UMAMI_WEBSITE_ID && (
         <Script
