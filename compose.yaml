@@ -1,48 +1,23 @@
 services:
-  nextjs:
+  f0w-nextjs:
     build: .
     environment:
-      - NODE_ENV=production
+      - NODE_ENV
+      - LASTFM_USER
+      - TRACK_LIMIT
+      - LASTFM_BASE_URL
+      - LASTFM_API_KEY
+      - GITHUB_USER
+      - GITHUB_API_KEY
+      - TELEGRAM_API_KEY
+      - TELEGRAM_CHAT_ID
+      - CANONICAL_URL
+      - UMAMI_SCRIPT_URL
+      - UMAMI_WEBSITE_ID
+      - NEXT_PUBLIC_BASE_URL
+      - DATABASE_URL
+      - NEXT_PUBLIC_IMAGES_URL
+      - WEBRING_PUBLIC_URL
+      - WEBRING_USER_ID
     ports:
-      - '3000:3000'
-    networks:
-      - webnet
-
-  caddy:
-    image: ghcr.io/iarekylew00t/caddy-cloudflare:latest
-    environment:
-      - CF_API_TOKEN=${CF_API_TOKEN}
-      - CADDY_RP_DOMAIN=${CADDY_RP_DOMAIN}
-      - CADDY_RP_IMAGE_SUBDOMAIN=${CADDY_RP_IMAGE_SUBDOMAIN}
-    ports:
-      - '80:80'
-      - '443:443'
-      - '5555:5555'
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-      - ../images:/srv/images  
-    networks:
-      - webnet
-
-  postgres:
-    image: postgres:latest
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - '5432:5432'
-    networks:
-      - webnet
-
-networks:
-  webnet:
-
-volumes:
-  caddy_data:
-  caddy_config:
-  postgres_data:
+      - '16000:16000'

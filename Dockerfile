@@ -16,6 +16,6 @@ COPY --from=builder /app ./
 
 RUN npm install --production
 
-EXPOSE 3000
+EXPOSE 16000
 
 CMD ["npx", "next", "start"]
