@@ -27,7 +27,7 @@ export default async function ProjectCard({
             {dictionary['home-page']['click-tip']}
           </span>
         </div>
-        <img
+        <Image
           className="object-contain"
           src={`${publicImagesBaseUrl}/projects/${project.screenshot}`}
           alt="project screen"
